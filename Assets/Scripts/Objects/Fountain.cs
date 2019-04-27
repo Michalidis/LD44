@@ -1,27 +1,16 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using Assets.Interfaces;
+using UnityEngine;
 
 namespace Assets.Scripts.Objects
 {
-    public class Fountain : MonoBehaviour
+    public class Fountain : Interactable
     {
+        [SerializeField] private GameObject bloodFountain;
 
-        private UIBehaviour ui;
-
-        void Start()
+        public override void PlayerInteract(GameObject player)
         {
-            this.ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIBehaviour>();
+            GameObject.Instantiate(bloodFountain, this.transform.position, this.transform.rotation);
+            GameObject.Destroy(this.gameObject);
         }
-
-        void OnTriggerEnter2D(Collider2D col)
-        {
-            this.ui.Interact(this);
-        }
-
-        void OnTriggerExit2D(Collider2D col)
-        {
-            this.ui.StopInteract(this);
-        }
-
     }
 }

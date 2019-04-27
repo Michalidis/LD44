@@ -1,42 +1,45 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Assets.Scripts.Character
 {
-
-    Rigidbody2D body;
-    Animator animator;
-
-    float horizontal;
-    float vertical;
-    float moveLimiter = 0.7f;
-
-    public float runSpeed = 1.0f;
-
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        body = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
 
-    void Update()
-    {
-        // Gives a value between -1 and 1
-        horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
-        vertical = Input.GetAxisRaw("Vertical"); // -1 is down
-    }
+        Rigidbody2D body;
+        Animator animator;
 
-    void FixedUpdate()
-    {
-        if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+        float horizontal;
+        float vertical;
+        float moveLimiter = 0.7f;
+
+        public float runSpeed = 1.0f;
+
+        void Start()
         {
-            // limit movement speed diagonally, so you move at 70% speed
-            horizontal *= moveLimiter;
-            vertical *= moveLimiter;
+            body = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
         }
 
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
-        animator.SetFloat("speed", body.velocity.magnitude);
-        animator.SetFloat("horizontal", horizontal);
-        animator.SetFloat("vertical", vertical);
+        void Update()
+        {
+            // Gives a value between -1 and 1
+            horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+            vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+        }
+
+        void FixedUpdate()
+        {
+            if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+            {
+                // limit movement speed diagonally, so you move at 70% speed
+                horizontal *= moveLimiter;
+                vertical *= moveLimiter;
+            }
+
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+            animator.SetFloat("speed", body.velocity.magnitude);
+            animator.SetFloat("horizontal", horizontal);
+            animator.SetFloat("vertical", vertical);
+        }
     }
 }
