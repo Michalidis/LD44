@@ -6,13 +6,14 @@ public class WeaponRotation : MonoBehaviour
 {
     private Transform shoulder;
     private bool is_mirrored;
+    private float rotation_offset_z;
 
     public float armLength = 0.1f;
-    public float rotation_offset_z;
     void Start()
     {
         shoulder = transform.parent.transform;
         is_mirrored = false;
+        rotation_offset_z = -transform.rotation.z;
     }
     void Update()
     {
@@ -31,7 +32,7 @@ public class WeaponRotation : MonoBehaviour
         {
             if (angle < -90 || angle > 90)
             {
-                transform.localScale += new Vector3(0, -2, 0);
+                transform.localScale -= new Vector3(0, 2 * transform.localScale.y, 0);
                 rotation_offset_z *= -1;
                 is_mirrored = true;
             }
@@ -40,7 +41,7 @@ public class WeaponRotation : MonoBehaviour
         {
             if (angle > -90 && angle < 90)
             {
-                transform.localScale += new Vector3(0, 2, 0);
+                transform.localScale -= new Vector3(0, 2 * transform.localScale.y, 0);
                 rotation_offset_z *= -1;
                 is_mirrored = false;
             }
