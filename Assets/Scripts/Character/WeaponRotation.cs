@@ -47,6 +47,5 @@ public class WeaponRotation : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - rotation_offset_z));
-        Debug.Log(angle);
     }
 }

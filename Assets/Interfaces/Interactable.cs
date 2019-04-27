@@ -4,21 +4,14 @@ namespace Assets.Interfaces
 {
     public abstract class Interactable : MonoBehaviour
     {
-        private Assets.Scripts.UI.UIBehavior ui;
-
-        void Start()
-        {
-            this.ui = GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>();
-        }
-
         void OnTriggerEnter2D(Collider2D col)
         {
-            this.ui.MayInteract(this);
+            GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().MayInteract(this);
         }
 
         void OnTriggerExit2D(Collider2D col)
         {
-            this.ui.StopInteracting(this);
+            GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().StopInteracting(this);
         }
 
         public abstract void PlayerInteract(GameObject player);
