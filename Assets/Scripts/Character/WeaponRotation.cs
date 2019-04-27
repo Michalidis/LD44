@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WeaponRotation : MonoBehaviour
+{
+    private Transform shoulder;
+    private bool is_mirrored;
+
+    public float armLength = 0.1f;
+    public float rotation_offset_z;
+    void Start()
+    {
+        shoulder = transform.parent.transform;
+        is_mirrored = false;
+    }
+    void Update()
+    {
+        Vector3 shoulderToMouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shoulder.position;
+        shoulderToMouseDir.z = 0; 
+        transform.position = shoulder.position + (armLength * shoulderToMouseDir.normalized);
+
+        Vector3 mouse_pos = Input.mousePosition;
+        mouse_pos.z = 5.23f;
+        Vector3 object_pos = Camera.main.WorldToScreenPoint(transform.position);
+        mouse_pos.x = mouse_pos.x - object_pos.x;
+        mouse_pos.y = mouse_pos.y - object_pos.y;
+        float angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
+
+        if (!is_mirrored)
+        {
+            if (angle < -90 || angle > 90)
+            {
+                transform.localScale += new Vector3(0, -2, 0);
+                rotation_offset_z *= -1;
+                is_mirrored = true;
+            }
+        }
+        else
+        {
+            if (angle > -90 && angle < 90)
+            {
+                transform.localScale += new Vector3(0, 2, 0);
+                rotation_offset_z *= -1;
+                is_mirrored = false;
+            }
+        }
+
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - rotation_offset_z));
+        Debug.Log(angle);
+    }
+}
