@@ -1,0 +1,25 @@
+1 postava 
+	- ranged
+	- abilities
+		- 
+		- 
+
+3 enemies
+1 boss fight
+3 levely (created)
+3 chest buffs
+3 boss items
+
+game mechanics:
+	- camera (topdown)
+	- combat / AI
+	- reset levels on death
+	- drop potions on enemy death
+	- enemy spawning
+	- levels + xp
+	- boss item drop
+	- kupovanie chestiek (spawnute po mape) za currency
+
+	
+YOUR LIFE IS CURRENCY
+ - statue starting mini event -> draining life & adding money; leaving aoe ends the event; + spawning life orbs + spawning mob which on hit deals damage & adds coins + spawning lot of regular mobs
