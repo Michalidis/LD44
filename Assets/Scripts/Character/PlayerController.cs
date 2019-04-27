@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
             vertical *= moveLimiter;
         }
 
-        Debug.Log(body.velocity.magnitude + " " + horizontal + " " + vertical);
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
         animator.SetFloat("speed", body.velocity.magnitude);
         animator.SetFloat("horizontal", horizontal);
