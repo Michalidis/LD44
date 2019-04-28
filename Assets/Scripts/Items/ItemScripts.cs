@@ -69,7 +69,7 @@ public class Item_JacketOfFirepower : Item
     public override void OnItemPickedUp(GameObject player)
     {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.Bonus_WalkSpeed += 0.05f;
+        stats.Bonus_ProjectileSpeed += 0.04f;
         stats.RecalculateBaseStats();
     }
 }
@@ -88,7 +88,10 @@ public class Item_HelmetOfProtection : Item
 {
     public override void OnItemPickedUp(GameObject player)
     {
-        return; // TODO
+        PlayerStats stats = player.GetComponent<PlayerStats>();
+        stats.Bonus_MaxHP += 25;
+        stats.RecalculateBaseStats();
+        GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().SetHealth(stats.CurrentHitPoints, stats.MaxHitPoints);
     }
 }
 
@@ -123,7 +126,7 @@ public class Item_RapierOfDamage : Item
     public override void OnItemPickedUp(GameObject player)
     {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.Bonus_ProjectileDamagePct = 0.10f;
+        stats.Bonus_ProjectileDamagePct += 0.10f;
         stats.RecalculateBaseStats();
     }
 }
@@ -141,7 +144,7 @@ public class Item_EmblemOfSprint : Item
     public override void OnItemPickedUp(GameObject player)
     {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.Bonus_RunSpeed = 0.10f;
+        stats.Bonus_RunSpeed += 0.10f;
         stats.RecalculateBaseStats();
     }
 }
