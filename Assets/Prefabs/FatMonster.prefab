@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3112602167026340063}
   - component: {fileID: 3112602167026340032}
   - component: {fileID: -883522928457505811}
+  - component: {fileID: 1164871694}
   m_Layer: 0
   m_Name: FatMonster
   m_TagString: Untagged
@@ -268,3 +269,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1164871694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112602167026340033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc70d74380155f4daed079fd4926fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 40
+  damage: 30

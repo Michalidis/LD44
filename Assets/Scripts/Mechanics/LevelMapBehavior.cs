@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public class LevelMapBehavior : MonoBehaviour
+namespace Assets.Scripts.Mechanics
 {
-
-    [SerializeField] private GameObject[] maps;
-
-    void Start()
+    public class LevelMapBehavior : MonoBehaviour
     {
-        var selectedMap = this.maps[new System.Random().Next(this.maps.Length)];
-        GameObject.Instantiate(selectedMap, new Vector3(), Quaternion.identity);
-    }
 
+        [SerializeField] private GameObject[] maps;
+
+        void Start()
+        {
+            var selectedMap = this.maps[new System.Random().Next(this.maps.Length)];
+            GameObject.Instantiate(selectedMap, new Vector3(), Quaternion.identity);
+        }
+
+    }
 }
