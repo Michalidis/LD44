@@ -1,5 +1,6 @@
 ﻿using Assets.Interfaces;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.UI
 {
@@ -53,6 +54,11 @@ namespace Assets.Scripts.UI
                 this.interactingWith = null;
                 this.interactText.gameObject.SetActive(false);
             }
+        }
+
+        public void OnPlayerDeath()
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
 
     }
