@@ -1,4 +1,5 @@
 ﻿using Assets.Interfaces;
+using Assets.Scripts.Mechanics;
 using UnityEngine;
 
 namespace Assets.Scripts.Character
@@ -73,7 +74,18 @@ namespace Assets.Scripts.Character
         public void TakeDamage(int amount)
         {
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0.0f, this.MaxHitPoints);
-            GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetHealth(this.CurrentHitPoints, this.MaxHitPoints);
+
+            var ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>();
+            ui.SetHealth(this.CurrentHitPoints, this.MaxHitPoints);
+
+            if (this.CurrentHitPoints == 0)
+            {
+                ui.OnPlayerDeath();
+
+                this.gameObject.GetComponent<PlayerController>()?.Disable();
+                this.gameObject.GetComponent<ObjectSpawner>()?.Disable();
+            }
+
         }
     }
 }

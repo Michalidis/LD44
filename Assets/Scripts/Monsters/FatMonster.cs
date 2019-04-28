@@ -63,7 +63,7 @@ public class FatMonster : MosterMovement
 
             Vector2 dist = new Vector2(thisX - x, thisY - y).normalized;
 
-            this.Player.GetComponent<PlayerController>().BumpPlayerIntoDirection(-dist * 10.0f);
+            this.Player.GetComponent<PlayerController>()?.BumpPlayerIntoDirection(-dist * 10.0f);
             Hit();
         }
     }
