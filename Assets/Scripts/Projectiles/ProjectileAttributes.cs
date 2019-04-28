@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ProjectileAttributes : MonoBehaviour
+namespace Assets.Scripts.Projectiles
 {
-    public float rotation_offset;
-    public AudioClip fired_sound;
+    public class ProjectileAttributes : MonoBehaviour
+    {
+        public float rotation_offset;
+        public AudioClip fired_sound;
+    }
 }

@@ -22,6 +22,12 @@ namespace Assets.Scripts.Mechanics
     
         void Start()
         {
+            Physics2D.IgnoreLayerCollision(8, 9);
+            Physics2D.IgnoreLayerCollision(9, 9);
+            Physics2D.IgnoreLayerCollision(9, 10);
+            Physics2D.IgnoreLayerCollision(10, 9);
+            Physics2D.IgnoreLayerCollision(10, 10);
+
             InvokeRepeating("Spawn", delay, interval);
         }
 

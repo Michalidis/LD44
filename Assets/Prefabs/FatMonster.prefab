@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 157564767}
   - component: {fileID: 157564769}
   - component: {fileID: 157564768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 296425992}
   - component: {fileID: 296425991}
   - component: {fileID: 296425990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 371471033}
   - component: {fileID: 371471035}
   - component: {fileID: 371471034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBarBackgorund
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 2071626804}
   - component: {fileID: 2071626806}
   - component: {fileID: 2071626805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,9 +341,9 @@ GameObject:
   - component: {fileID: 717425775402266801}
   - component: {fileID: 1164871694}
   - component: {fileID: 3112602167026340036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FatMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
