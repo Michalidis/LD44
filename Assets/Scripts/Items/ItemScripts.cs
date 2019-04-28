@@ -156,3 +156,13 @@ public class Item_BookOfResurrection : Item
         return;
     }
 }
+
+public class Item_HealthPotion : Item
+{
+    public override void OnItemPickedUp(GameObject player)
+    {
+        PlayerStats stats = player.GetComponent<PlayerStats>();
+        stats.SetCurrentHealth(Mathf.Min(stats.MaxHitPoints, stats.MaxHitPoints + stats.MaxHitPoints * (Mathf.RoundToInt(Random.Range(20, 35)))));
+        GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().SetHealth(stats.CurrentHitPoints, stats.MaxHitPoints);
+    }
+}
