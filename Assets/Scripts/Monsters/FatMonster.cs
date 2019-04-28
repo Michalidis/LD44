@@ -10,7 +10,6 @@ public class FatMonster : MosterMovement
     private AudioSource soundPlayer;
 
     private float soundEstimate;
-    private readonly System.Random luck = new System.Random();
 
     // Start is called before the first frame update
     private void Start()
@@ -34,17 +33,17 @@ public class FatMonster : MosterMovement
 
         Vector2 dist = new Vector2(x - thisX, y - thisY).normalized;
 
-        this.col.velocity = dist * this.Speed;
+        this.body.velocity = dist * this.Speed;
 
-        this.SetAnimator(this.col.velocity);
+        this.SetAnimator(this.body.velocity);
     }
 
     private void PlayMoan()
     {
         if (soundEstimate < 0)
         {
-            this.soundPlayer.clip = this.ZombieMoanClips.Length == 0 ? null : this.ZombieMoanClips[this.luck.Next(this.ZombieMoanClips.Length)];
-            this.soundEstimate = this.soundPlayer.clip.length + 5 + this.luck.Next(5);
+            this.soundPlayer.clip = this.ZombieMoanClips.Length == 0 ? null : this.ZombieMoanClips[this.random.Next(this.ZombieMoanClips.Length)];
+            this.soundEstimate = this.soundPlayer.clip.length + 5 + this.random.Next(5);
 
             this.soundPlayer.Play();
         }
@@ -72,7 +71,7 @@ public class FatMonster : MosterMovement
     {
         if (this.hitClips != null && this.hitClips.Length != 0)
         {
-            this.soundPlayer.clip = this.hitClips.Length == 0 ? null : this.hitClips[this.luck.Next(this.hitClips.Length)];
+            this.soundPlayer.clip = this.hitClips.Length == 0 ? null : this.hitClips[this.random.Next(this.hitClips.Length)];
             this.soundEstimate = this.soundPlayer.clip.length;
 
             this.soundPlayer.Play();

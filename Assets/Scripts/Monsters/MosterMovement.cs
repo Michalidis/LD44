@@ -8,7 +8,9 @@ public class MosterMovement : MonoBehaviour
 
     protected Animator Animator;
 
-    protected Rigidbody2D col;
+    protected Rigidbody2D body;
+
+    protected System.Random random = new System.Random();
 
     protected virtual void Init()
     {
@@ -22,9 +24,9 @@ public class MosterMovement : MonoBehaviour
             this.Player = GameObject.Find("Character");
         }
 
-        this.col = this.gameObject.GetComponent<Rigidbody2D>();
-        this.col.rotation = 0;
-        this.col.freezeRotation = true;
+        this.body = this.gameObject.GetComponent<Rigidbody2D>();
+        this.body.rotation = 0;
+        this.body.freezeRotation = true;
     }
 
     /*
