@@ -30,8 +30,13 @@ namespace Assets.Scripts.Monsters
 
             if (this.CurrentHitPoints == 0)
             {
-                GameObject.Destroy(this.gameObject);
+                JustDied();
             }
+        }
+
+        void JustDied()
+        {
+            Destroy(gameObject);
         }
 
         public int GetDamage()

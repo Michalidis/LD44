@@ -23,12 +23,23 @@ public class Skeleton : MosterMovement
 
         var collisionPoint = collision.GetContact(0).point;
 
-        float thisX = this.gameObject.transform.position.x;
-        float thisY = this.gameObject.transform.position.y;
+        Vector3 thisPos = this.gameObject.transform.position;
 
-        Vector2 dist = new Vector2(thisX - collisionPoint.x, thisY - collisionPoint.y).normalized;
+        Vector2 dist = new Vector2(thisPos.x - collisionPoint.x, thisPos.y - collisionPoint.y).normalized;
         var randVec = new Vector2(dist.x * 0.9f * this.random.Next(100) / 100.0f, dist.y * 0.9f * this.random.Next(100) / 100.0f);
+        
+        Vector3 plPosition = this.Player.gameObject.transform.position;
+        float plX = plPosition.x;
+        float plY = plPosition.y;
+        var plDist = new Vector2(plX - thisPos.x, plY - thisPos.y);
 
-        this.velocity = (dist + randVec) * this.Speed;
+        if (plDist.magnitude > 2.0f)
+        {
+            this.velocity = plDist.normalized * this.Speed;
+        }
+        else
+        {
+            this.velocity = (dist + randVec) * this.Speed;
+        }
     }
 }
