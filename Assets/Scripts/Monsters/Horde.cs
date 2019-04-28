@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Character;
+﻿using System.Collections;
+using Assets.Scripts.Character;
 using Assets.Scripts.Monsters;
 using UnityEngine;
 
@@ -14,7 +15,8 @@ public class Horde : MosterMovement
 
     private float SoundEstimate;
     private bool hitting;
-    private readonly System.Random luck = new System.Random();
+
+    private bool followPlayer = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -22,6 +24,14 @@ public class Horde : MosterMovement
         this.Init();
         this.soundPlayer = this.GetComponent<AudioSource>();
         this.hitClips = GameObject.Find("HitManager").GetComponent<HitManager>().HitClips;
+
+        this.StartCoroutine("FollowPlayer");
+    }
+
+    private IEnumerator FollowPlayer()
+    {
+        yield return new WaitForSeconds(5.0f); // wait half a second
+        this.followPlayer = true;
     }
 
     // Update is called once per frame
@@ -34,9 +44,9 @@ public class Horde : MosterMovement
         float plY = plPosition.y;
         var plDist = new Vector2(plX - thisPos.x, plY - thisPos.y);
 
-        if (this.Leader == null)
+        if (followPlayer || this.Leader == null)
         {
-            this.col.velocity = plDist.normalized * this.Speed;
+            this.body.velocity = plDist.normalized * this.Speed;
         }
         else
         {
@@ -47,16 +57,16 @@ public class Horde : MosterMovement
 
             if (leaderDist.magnitude < this.MaxLeaderDistance || plDist.magnitude < leaderDist.magnitude)
             {
-                this.col.velocity = plDist.normalized * this.Speed;
+                this.body.velocity = plDist.normalized * this.Speed;
             }
             else if (leaderDist.magnitude > this.MaxLeaderDistance)
             {
-                this.col.velocity = leaderDist.normalized * this.Speed;
+                this.body.velocity = leaderDist.normalized * this.Speed;
             }
         }
 
         this.Hit();
-        this.SetAnimator(this.col.velocity);
+        this.SetAnimator(this.body.velocity);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -89,12 +99,12 @@ public class Horde : MosterMovement
         {
             return;
         }
-        
+
         if (this.SoundEstimate < 0)
         {
             if (this.hitClips != null && this.hitClips.Length != 0)
             {
-                this.soundPlayer.clip = this.hitClips.Length == 0 ? null : this.hitClips[this.luck.Next(this.hitClips.Length)];
+                this.soundPlayer.clip = this.hitClips.Length == 0 ? null : this.hitClips[this.random.Next(this.hitClips.Length)];
                 this.SoundEstimate = this.soundPlayer.clip.length;
 
                 this.soundPlayer.Play();

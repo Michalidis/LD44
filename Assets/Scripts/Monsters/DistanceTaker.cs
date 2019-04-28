@@ -28,17 +28,17 @@ public class DistanceTaker : MosterMovement
 
         if (MinDistance < dist.magnitude && dist.magnitude < MaxDistance)
         {
-            this.col.velocity = Vector2.zero;
+            this.body.velocity = Vector2.zero;
         }
         else if (dist.magnitude < MinDistance)
         {
-            this.col.velocity = -dist.normalized * this.Speed;
+            this.body.velocity = -dist.normalized * this.Speed;
         }
         else
         {
-            this.col.velocity = dist.normalized * this.Speed;
+            this.body.velocity = dist.normalized * this.Speed;
         }
 
-        this.SetAnimator(this.col.velocity);
+        this.SetAnimator(this.body.velocity);
     }
 }

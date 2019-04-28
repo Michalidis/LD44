@@ -21,3 +21,6 @@ https://opengameart.org/content/lasers-and-beams
 
 Level 1 ambient sound:
 https://opengameart.org/content/forest-ambience
+
+potion:
+https://opengameart.org/content/pixel-potion-set-16x16

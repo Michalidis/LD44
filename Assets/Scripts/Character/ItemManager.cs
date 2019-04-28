@@ -14,22 +14,23 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void PickUpItem(Item item)
     {
-        if (owned_items.ContainsKey(item.name))
+        if (item.count > 0)
         {
-            owned_items[item.name].count++;
+            if (owned_items.ContainsKey(item.name))
+            {
+                owned_items[item.name].count += item.count;
+            }
+            else
+            {
+                owned_items.Add(item.name, item);
+            }
         }
-        else
-        {
-            owned_items.Add(item.name, item);
-        }
-        foreach (var Item in owned_items)
-        {
-            item.OnItemPickedUp(gameObject);
-        }
+
+        item.OnItemPickedUp(gameObject);
     }
 }

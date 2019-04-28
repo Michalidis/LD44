@@ -183,4 +183,14 @@ public class ItemAttributes : MonoBehaviour
             description = item_description
         };
     }
+
+    public Item Health_init(int item_count, string item_name, string item_description)
+    {
+        return new Item_HealthPotion()
+        {
+            count = item_count,
+            name = item_name,
+            description = item_description
+        };
+    }
 }

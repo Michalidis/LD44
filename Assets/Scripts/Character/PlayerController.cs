@@ -73,8 +73,9 @@ namespace Assets.Scripts.Character
                 speed = playerStats.WalkSpeed;
             }
 
-            if (bumping)
+            if (this.bumping)
             {
+                if (body.velocity.magnitude < 0.1f) { this.bumping = false; }
                 body.velocity = new Vector2(body.velocity.x / 1.5f, body.velocity.y / 1.5f);
             }
             else
@@ -102,13 +103,6 @@ namespace Assets.Scripts.Character
         {
             bumping = true;
             body.velocity = direction;
-            StartCoroutine("Bumping");
-        }
-
-        private IEnumerator Bumping()
-        {
-            yield return new WaitForSeconds(0.7f); // wait half a second
-            bumping = false;
         }
     }
 }
