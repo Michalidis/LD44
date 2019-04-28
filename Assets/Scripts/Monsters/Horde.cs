@@ -43,7 +43,7 @@ public class Horde : MosterMovement
             float y = leaderPosition.y;
             var leaderDist = new Vector2(x - thisPos.x, y - thisPos.y);
 
-            if (leaderDist.magnitude < this.MaxLeaderDistance)
+            if (leaderDist.magnitude < this.MaxLeaderDistance || plDist.magnitude < leaderDist.magnitude)
             {
                 this.col.velocity = plDist.normalized * this.Speed;
             }
@@ -87,8 +87,7 @@ public class Horde : MosterMovement
         {
             return;
         }
-
-        Debug.Log("Hit");
+        
         if (this.SoundEstimate < 0)
         {
             if (this.hitClips != null && this.hitClips.Length != 0)
