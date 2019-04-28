@@ -72,8 +72,6 @@ namespace Assets.Scripts.Character
 
         public void TakeDamage(int amount)
         {
-            Debug.Log($"TOOK DAMAGE {amount}");
-
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0.0f, this.MaxHitPoints);
             GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetHealth(this.CurrentHitPoints, this.MaxHitPoints);
         }

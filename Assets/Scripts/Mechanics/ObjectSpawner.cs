@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Monsters;
+using UnityEngine;
 
 namespace Assets.Scripts.Mechanics
 {
     public class ObjectSpawner : MonoBehaviour
     {
         private static Vector2 NO_HIT_VECTOR = new Vector2(55555f, 55555f);
-        private static int INCREASE_COUNT_EVERY_X_ROUND = 5; 
+        private static int INCREASE_COUNT_EVERY_X_ROUND = 5;
+        private static int BOOST_ENEMIES_EVERY_X_ROUND = 2;
+        private static float BOOST_BONUS = 0.2f;
 
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private int count;
@@ -15,6 +18,7 @@ namespace Assets.Scripts.Mechanics
 
         private System.Random random = new System.Random();
         private int currentWave = 0;
+        private float currentBoost = 1.0f;
     
         void Start()
         {
@@ -30,6 +34,11 @@ namespace Assets.Scripts.Mechanics
                 this.count++;
             }
 
+            if (this.currentWave % BOOST_ENEMIES_EVERY_X_ROUND == 0)
+            {
+                this.currentBoost += BOOST_BONUS;
+            }
+
             for (var i = 0; i < this.count; ++i)
             {
                 var spawnPosition2D = this.getSpawnPosition();
@@ -38,7 +47,12 @@ namespace Assets.Scripts.Mechanics
                     continue;
 
                 var index = this.random.Next(this.objectsToSpawn.Length);
-                Instantiate(objectsToSpawn[index], spawnPosition2D, Quaternion.identity);
+                var instantiatedObject = Instantiate(objectsToSpawn[index], spawnPosition2D, Quaternion.identity);
+                var enemyStats = instantiatedObject.GetComponent<EnemyStats>();
+                if (enemyStats != null)
+                {
+                    enemyStats.SetStatMultiplier(this.currentBoost);
+                }
             }
 
             GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetWave(this.currentWave);

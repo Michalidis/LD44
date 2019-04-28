@@ -55,7 +55,6 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
 
         if (this.shooting_cooldown <= 0.0f)
         {
-            Debug.Log("FIRE");
             this.shooting_cooldown = 1.0f / ShotsPerSecond;
             Vector2 weaponToMouseDir = player.transform.position - this.transform.position;
 
