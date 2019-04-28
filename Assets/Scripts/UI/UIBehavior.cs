@@ -32,9 +32,9 @@ namespace Assets.Scripts.UI
             this.healthBar.SetHealth(current, max);
         }
 
-        public void SetWave(int number)
+        public void SetWave(int number, float boost)
         {
-            this.waveCounter.SetWave(number);
+            this.waveCounter.SetWave(number, boost);
         }
 
         public void MayInteract(Interactable with)

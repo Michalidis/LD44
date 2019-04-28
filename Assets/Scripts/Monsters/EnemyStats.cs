@@ -36,8 +36,6 @@ namespace Assets.Scripts.Monsters
 
             this.CurrentHitPoints = (int)(this.statMultiplier * this.CurrentHitPoints);
             this.maxHitPoints = (int) (this.statMultiplier * this.maxHitPoints);
-
-            this.TryUpdateHealthBar();
         }
 
         void TryUpdateHealthBar()
