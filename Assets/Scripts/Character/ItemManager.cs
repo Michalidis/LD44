@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
-{
-    public int count;
-    public string name;
-    public string description;
-}
-
 public class ItemManager : MonoBehaviour
 {
     public Dictionary<string, Item> owned_items;
