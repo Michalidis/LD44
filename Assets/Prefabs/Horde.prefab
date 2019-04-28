@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 212326714}
   - component: {fileID: 212326716}
   - component: {fileID: 212326715}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBarBackgorund
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 1380010338}
   - component: {fileID: 1380010337}
   - component: {fileID: 1380010336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 1798876766}
   - component: {fileID: 1798876768}
   - component: {fileID: 1798876767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 2061759405}
   - component: {fileID: 2061759407}
   - component: {fileID: 2061759406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,9 +342,9 @@ GameObject:
   - component: {fileID: -352253080719578824}
   - component: {fileID: 1821274713}
   - component: {fileID: 5807066164305800690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Horde
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

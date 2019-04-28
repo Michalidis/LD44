@@ -44,6 +44,8 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
         {
             this.sound_player.clip = pa.fired_sound;
         }
+
+        this.gameObject.layer = 8;
     }
     
     private void Update()
@@ -55,7 +57,6 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
 
         if (this.shooting_cooldown <= 0.0f)
         {
-            Debug.Log("FIRE");
             this.shooting_cooldown = 1.0f / ShotsPerSecond;
             Vector2 weaponToMouseDir = player.transform.position - this.transform.position;
 
@@ -77,10 +78,10 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
         shoulderToMouseDir.z = 0;
         projectile.transform.position += (this.weapon_length * shoulderToMouseDir.normalized);
 
-        ProjectileAttributes rotation_offset = projectile.GetComponent<ProjectileAttributes>();
+        ProjectileAttributes projectieAttributes = projectile.GetComponent<ProjectileAttributes>();
         projectile.transform.eulerAngles = new Vector3(projectile.transform.eulerAngles.x,
             projectile.transform.eulerAngles.y,
-            projectile.transform.eulerAngles.z + (rotation_offset ? rotation_offset.rotation_offset : 0.0f));
+            projectile.transform.eulerAngles.z + (projectieAttributes ? projectieAttributes.rotation_offset : 0.0f));
     }
 
     private GameObject GetProjectileForShooting()
@@ -90,6 +91,7 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
         {
             projectile = Instantiate(this.projectile, this.transform.position, this.transform.rotation);
             projectile.GetComponent<SpriteRenderer>().sortingOrder = 5;
+            this.TurnOffCollisionWithEnemies(projectile);
         }
         else
         {
@@ -107,6 +109,11 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
         yield return new WaitForSeconds(this.projectile_duration);
         this.projectile_storage.Enqueue(projectile);
         projectile.SetActive(false);
+    }
+
+    private void TurnOffCollisionWithEnemies(GameObject projectile)
+    {
+        projectile.layer = 9;
     }
 
     public int GetDamage()

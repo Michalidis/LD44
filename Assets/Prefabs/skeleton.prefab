@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 550190181}
   - component: {fileID: 550190183}
   - component: {fileID: 550190182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 703738887}
   - component: {fileID: 703738889}
   - component: {fileID: 703738888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBarBackgorund
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 889305408}
   - component: {fileID: 889305407}
   - component: {fileID: 889305406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1860207035}
   - component: {fileID: 1860207037}
   - component: {fileID: 1860207036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7735681621504202355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShoulderMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,9 +372,9 @@ GameObject:
   - component: {fileID: 2116019959}
   - component: {fileID: 2116019967}
   - component: {fileID: -8192179407892538618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 7735681622940691471}
   - component: {fileID: 7735681622940691475}
   - component: {fileID: 7735681622940691473}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
