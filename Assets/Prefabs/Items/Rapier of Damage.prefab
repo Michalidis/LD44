@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2019591244541675220}
   - component: {fileID: 2019591244541675221}
   m_Layer: 0
-  m_Name: Sword of Damage
+  m_Name: Rapier of Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4217185065573555157, guid: 49fb61e1443016d4ea5c2ef7988155e7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
