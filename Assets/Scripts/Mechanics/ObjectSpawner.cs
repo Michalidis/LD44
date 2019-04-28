@@ -31,6 +31,11 @@ namespace Assets.Scripts.Mechanics
             InvokeRepeating("Spawn", delay, interval);
         }
 
+        public void Disable()
+        {
+            GameObject.Destroy(this);
+        }
+
         private void Spawn()
         {
             this.currentWave++;

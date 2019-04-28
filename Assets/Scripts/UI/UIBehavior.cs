@@ -9,6 +9,7 @@ namespace Assets.Scripts.UI
         [SerializeField] private HealthBarBehavior healthBar;
         [SerializeField] private WaveCounterBehavior waveCounter;
         [SerializeField] private GameObject interactText;
+        [SerializeField] private GameObject gameOverOverlay;
 
         private Interactable interactingWith;
 
@@ -49,16 +50,15 @@ namespace Assets.Scripts.UI
 
         public void StopInteracting(Interactable with)
         {
-            if (this.interactingWith == with)
-            {
-                this.interactingWith = null;
-                this.interactText.gameObject.SetActive(false);
-            }
+            if (this.interactingWith != with) return;
+
+            this.interactingWith = null;
+            this.interactText.gameObject.SetActive(false);
         }
 
         public void OnPlayerDeath()
         {
-            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+            this.gameOverOverlay.SetActive(true);
         }
 
     }

@@ -104,5 +104,10 @@ namespace Assets.Scripts.Character
             bumping = true;
             body.velocity = direction;
         }
+
+        public void Disable()
+        {
+            GameObject.Destroy(this);
+        }
     }
 }

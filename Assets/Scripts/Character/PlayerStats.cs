@@ -1,4 +1,5 @@
 ﻿using Assets.Interfaces;
+using Assets.Scripts.Mechanics;
 using UnityEngine;
 
 namespace Assets.Scripts.Character
@@ -80,6 +81,9 @@ namespace Assets.Scripts.Character
             if (this.CurrentHitPoints == 0)
             {
                 ui.OnPlayerDeath();
+
+                this.gameObject.GetComponent<PlayerController>()?.Disable();
+                this.gameObject.GetComponent<ObjectSpawner>()?.Disable();
             }
 
         }
