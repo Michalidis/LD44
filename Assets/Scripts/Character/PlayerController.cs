@@ -8,6 +8,8 @@ namespace Assets.Scripts.Character
         Rigidbody2D body;
         Animator animator;
 
+        bool bumping;
+
         float horizontal;
         float vertical;
         float moveLimiter = 0.7f;
@@ -36,10 +38,23 @@ namespace Assets.Scripts.Character
                 vertical *= moveLimiter;
             }
 
-            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+            if (bumping)
+            {
+                bumping = false;
+            }
+            else
+            {
+                body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+            }
             animator.SetFloat("speed", body.velocity.magnitude);
             animator.SetFloat("horizontal", horizontal);
             animator.SetFloat("vertical", vertical);
+        }
+
+        public void BumpPlayerIntoDirection(Vector2 direction)
+        {
+            bumping = true;
+            body.velocity = direction;
         }
     }
 }
