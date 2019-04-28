@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_stats: {fileID: 946431761}
-  shooting_force: 100
+  shooting_force: 175
   projectile: {fileID: 5576503415684736146, guid: 78ddf552201042d4b9b36f6034121629,
     type: 3}
   projectile_duration: 3.5
