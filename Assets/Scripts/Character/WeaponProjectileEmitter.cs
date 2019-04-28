@@ -9,6 +9,7 @@ public class WeaponProjectileEmitter : MonoBehaviour
     public PlayerController player_controller;
 
     public float shooting_force;
+    public int shooting_damage;
 
     private AudioSource sound_player;
     public GameObject projectile;
