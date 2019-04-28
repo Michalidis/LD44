@@ -14,7 +14,7 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void PickUpItem(Item item)
@@ -27,9 +27,7 @@ public class ItemManager : MonoBehaviour
         {
             owned_items.Add(item.name, item);
         }
-        foreach (var Item in owned_items)
-        {
-            item.OnItemPickedUp(gameObject);
-        }
+
+        item.OnItemPickedUp(gameObject);
     }
 }
