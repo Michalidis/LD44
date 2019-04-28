@@ -19,13 +19,16 @@ public class ItemManager : MonoBehaviour
 
     public void PickUpItem(Item item)
     {
-        if (owned_items.ContainsKey(item.name))
+        if (item.count > 0)
         {
-            owned_items[item.name].count++;
-        }
-        else
-        {
-            owned_items.Add(item.name, item);
+            if (owned_items.ContainsKey(item.name))
+            {
+                owned_items[item.name].count += item.count;
+            }
+            else
+            {
+                owned_items.Add(item.name, item);
+            }
         }
 
         item.OnItemPickedUp(gameObject);
