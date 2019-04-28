@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 321742790}
   - component: {fileID: 321742791}
   - component: {fileID: 321742792}
+  - component: {fileID: -2381580556960236891}
   m_Layer: 0
   m_Name: Fountain
   m_TagString: Untagged
@@ -148,3 +149,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloodFountain: {fileID: 3242821902811623205, guid: 40fb7bb3606fefe41a95a65d7ca8015f,
     type: 3}
+--- !u!114 &-2381580556960236891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639200345754615393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4355859ae1a81554fbfdd802f6d652cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnsureLoot: 1
+  LootTable:
+  - {fileID: 5997746000013741152, guid: 0c67537f1a96f2e4e8fc344443106c23, type: 3}
+  - {fileID: 627220238232447497, guid: 986efec5d6fc5a542878d0bd4033b3b5, type: 3}
+  - {fileID: 5062719875187135477, guid: 8c7aa121c872e734db1362dc9a325102, type: 3}
+  - {fileID: 7161409482665699031, guid: 48df8d6ad3ffdac4890a2e989f95c091, type: 3}
+  - {fileID: 4722197176685849154, guid: 6aabc5657723bf54080c8a541c0fde10, type: 3}
+  - {fileID: 1063611509018128016, guid: 74b72ce26e900ca42a71f6327a5d64c9, type: 3}
+  - {fileID: 9092946081555995247, guid: 3d94ff69050abd14893fafa41e0f253b, type: 3}
+  - {fileID: 1808057243743245969, guid: 9eeb6eaec1d4bf34a8994071b6bc8d35, type: 3}
+  - {fileID: 2019591244541675217, guid: fbe07e13fad53b5458e608edf320a33e, type: 3}
+  - {fileID: 188942168779105048, guid: 0422ed10a5558c3418e7f8dd53326a64, type: 3}
+  - {fileID: 3526393460778369397, guid: 184f4a27b56c82e40b203b3b218fe9b9, type: 3}
+  - {fileID: 8063835673694249649, guid: 43092aae62a6e1745bc6da3d18608214, type: 3}
+  - {fileID: 2783549234691893706, guid: 923dbdfc1bfd96d4893532b52b0e457b, type: 3}
+  - {fileID: 7438624880461732059, guid: ae0ac5ce23d84a2438186fb372ee179d, type: 3}
+  - {fileID: 3244462899948200652, guid: ca0f10837ec32f546be6d357b08ec05a, type: 3}
+  - {fileID: 255792292948456393, guid: a9a2ce1c4ba219e4eb945269d2615939, type: 3}
+  ChanceTable:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
