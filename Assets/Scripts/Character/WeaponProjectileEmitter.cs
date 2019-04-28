@@ -53,7 +53,7 @@ public class WeaponProjectileEmitter : MonoBehaviour
         {
             if (shooting_cooldown <= 0.0f)
             {
-                shooting_cooldown = 1.0f * player_stats.ProjectilesPerSecond;
+                shooting_cooldown = 1.0f / player_stats.ProjectilesPerSecond;
                 Vector2 weaponToMouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
                 GameObject _projectile = GetProjectileForShooting();
