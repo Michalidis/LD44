@@ -46,7 +46,14 @@ namespace Assets.Scripts.Mechanics
 
                 var raycastHit = Physics2D.Raycast(spawnPosition2D, directionToMe, this.radius * 1.5f);
                 if (raycastHit.collider.gameObject == player)
-                return spawnPosition2D;
+                {
+                    return spawnPosition2D;
+                }
+
+                if (raycastHit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
+                {
+                    return spawnPosition2D;
+                }
             }
 
             Debug.Log("NOT SPAWNED!");
