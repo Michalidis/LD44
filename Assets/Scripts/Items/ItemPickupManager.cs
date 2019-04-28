@@ -44,6 +44,7 @@ public class ItemPickupManager : MonoBehaviour
         isPickedUp = true;
         GetComponent<PolygonCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().DOFade(0.0f, 0.5f);
+        GetComponent<ItemAttributes>().particle_system.GetComponent<ParticleSystem>().Stop();
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
