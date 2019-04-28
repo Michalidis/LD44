@@ -141,13 +141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
   - {fileID: 3112602167026340033, guid: 817c89bce291c864b87199e614775226, type: 3}
-  - {fileID: 1062900564783304729, guid: 318396ae0e125704e9e41ad4acd7b503, type: 3}
-  - {fileID: 3639200345754615393, guid: 70b6041e64d04c44a9ac929622fb7e3b, type: 3}
-  count: 1
-  interval: 10
-  delay: 3
-  radius: 1.5
+  count: 3
+  interval: 15
+  delay: 5
+  radius: 1
 --- !u!1 &1734822983
 GameObject:
   m_ObjectHideFlags: 0

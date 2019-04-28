@@ -38,7 +38,7 @@ namespace Assets.Scripts.Mechanics
             var myPosition2D = new Vector2(myPosition.x, myPosition.y);
             var player = GameObject.FindGameObjectWithTag("Player");
 
-            for (int i = 0; i < 10; ++i)
+            for (int i = 0; i < 100; ++i)
             {
                 var spawnPositionOffset2D = Random.insideUnitCircle * this.radius;
                 var spawnPosition2D = myPosition2D + spawnPositionOffset2D;
