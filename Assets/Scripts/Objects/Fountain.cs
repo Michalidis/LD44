@@ -33,6 +33,13 @@ namespace Assets.Scripts.Objects
             }
         }
 
+        public override string GetInteractDescriptionText()
+        {
+            var playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+            var absoluteFountainDamage = (int) (playerStats.MaxHitPoints * this.damage);
+            return $"Sacrificing to this mountain will damage you for {absoluteFountainDamage} Hit Points";
+        }
+
         private bool TryDamagePlayer(PlayerStats playerStats)
         {   
             var damageTaken = playerStats.TryTakeDamagePercentage(this.damage);
