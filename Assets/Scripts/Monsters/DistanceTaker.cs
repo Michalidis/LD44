@@ -1,28 +1,17 @@
 ﻿using UnityEngine;
 
-public class DistanceTaker : MonoBehaviour
+public class DistanceTaker : MosterMovement
 {
-    public GameObject Player { get; set; }
+    public float Speed = 0.3f;
 
-    public float Speed { get; set; } = 0.3f;
+    public float MinDistance = 0.8f;
 
-    public float MinDistance { get; set; } = 0.8f;
-
-    public float MaxDistance { get; set; } = 1.5f;
-
-    private Rigidbody2D col;
+    public float MaxDistance = 1.5f;
 
     // Start is called before the first frame update
     private void Start()
     {
-        if (this.Player == null)
-        {
-            this.Player = GameObject.Find("Character");
-        }
-
-        this.col = this.gameObject.GetComponent<Rigidbody2D>();
-        this.col.rotation = 0;
-        this.col.freezeRotation = true;
+        Init();
     }
 
     // Update is called once per frame
@@ -49,5 +38,7 @@ public class DistanceTaker : MonoBehaviour
         {
             this.col.velocity = dist.normalized * this.Speed;
         }
+
+        this.SetAnimator(this.col.velocity);
     }
 }
