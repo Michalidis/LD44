@@ -19,6 +19,7 @@ game mechanics:
 	- levels + xp
 	- boss item drop
 	- kupovanie chestiek (spawnute po mape) za currency
+	- enemies can drop health potions
 
 	
 YOUR LIFE IS CURRENCY
