@@ -7,7 +7,7 @@ namespace Assets.Scripts.Character
         public readonly float moveLimiter = 0.7f;
 
         private const int STARTING_HEALTH = 255;
-        private const float STARTING_PPS = 20.15f;
+        private const float STARTING_PPS = 2.15f;
         private const float STARTING_WALK_SPEED = 1.0f;
         private const float STARTING_RUN_SPEED = 1.7f;
 
