@@ -41,6 +41,9 @@ namespace Assets.Scripts.UI
         {
             this.interactingWith = with;
             this.interactText.gameObject.SetActive(true);
+
+            var descriptionText = with.GetInteractDescriptionText();
+            this.interactText.GetComponent<InteractTextBehavior>().SetDescriptionText(descriptionText);
         }
 
         public void StopInteracting(Interactable with)

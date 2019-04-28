@@ -22,6 +22,11 @@ namespace Assets.Interfaces
             GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().StopInteracting(this);
         }
 
+        public virtual string GetInteractDescriptionText()
+        {
+            return "";
+        }
+
         public abstract void PlayerInteract(GameObject player);
     }
 }
