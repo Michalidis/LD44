@@ -37,13 +37,20 @@ namespace Assets.Scripts.Character
             HasStoneKey = false;
             HasGoldenKey = false;
             RecalculateBaseStats();
+            this.CurrentHitPoints = this.MaxHitPoints;
             GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetHealth(STARTING_HEALTH, STARTING_HEALTH);
+        }
+
+
+        public void SetCurrentHealth(int amount)
+        {
+            CurrentHitPoints = amount;
         }
 
         public void RecalculateBaseStats()
         {
             this.MaxHitPoints = STARTING_HEALTH + Bonus_MaxHP;
-            this.CurrentHitPoints = STARTING_HEALTH;
+            this.CurrentHitPoints = Mathf.Min(MaxHitPoints, CurrentHitPoints);
             this.ProjectilesPerSecond = STARTING_PPS * (1.0f + Bonus_AttackSpeedPct);
             this.WalkSpeed = STARTING_WALK_SPEED * (1.0f + Bonus_WalkSpeed);
             this.RunSpeed = STARTING_RUN_SPEED * (1.0f + Bonus_RunSpeed);
