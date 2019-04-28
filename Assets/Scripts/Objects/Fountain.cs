@@ -29,14 +29,7 @@ namespace Assets.Scripts.Objects
         private bool TryDamagePlayer(PlayerStats playerStats)
         {   
             var damageTaken = playerStats.TryTakeDamagePercentage(this.damage);
-            if (damageTaken == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return damageTaken != 0;
         }
     }
 }
