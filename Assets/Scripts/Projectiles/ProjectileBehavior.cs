@@ -5,7 +5,7 @@ namespace Assets.Scripts.Projectiles
 {
     public class ProjectileBehavior : MonoBehaviour
     {
-        public WeaponProjectileEmitter shotFrom { get; set; }
+        public IWeaponProjectileEmitter shotFrom { get; set; }
 
         void OnCollisionEnter2D(Collision2D col)
         {
@@ -14,7 +14,7 @@ namespace Assets.Scripts.Projectiles
                 var hit = col.GetContact(0).collider.gameObject;
                 
                 var damagable = hit.GetComponent<IDamagable>();
-                damagable?.TakeDamage(shotFrom.shooting_damage);
+                damagable?.TakeDamage(shotFrom.GetDamage());
 
                 this.gameObject.SetActive(false);
                 return;
