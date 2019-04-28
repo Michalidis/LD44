@@ -12,13 +12,21 @@ namespace Assets.Scripts.UI
 
         void Start()
         {
-            this.textColor = this.text.color;
-            this.text.color = Color.clear;
+            if (this.text)
+            {
+                this.textColor = this.text.color;
+                this.text.color = Color.clear;
+            }
         }
 
         public void SetHealth(int current, int max)
         {
-            this.text.text = $"{current} / {max}";
+            if (this.text != null)
+            {
+                this.text.text = $"{current} / {max}";
+            }
+
+
             var percentage = Mathf.Clamp((float) current / max, 0f, 1f);
 
             var currentBarScale = this.bar.transform.localScale;
@@ -27,12 +35,18 @@ namespace Assets.Scripts.UI
 
         public void OnPointerEnter()
         {
-            this.text.color = this.textColor;
+            if (this.text)
+            {
+                this.text.color = this.textColor;
+            }
         }
 
         public void OnPointerExit()
         {
-            this.text.color = Color.clear;
+            if (this.text)
+            {
+                this.text.color = Color.clear;
+            }
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using Assets.Interfaces;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 namespace Assets.Scripts.Monsters
@@ -18,6 +19,15 @@ namespace Assets.Scripts.Monsters
         {
             Debug.Log($"ENEMY TOOK DAMAGE: {amount}");
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0f, this.maxHitPoints);
+
+            var healthBar = this.gameObject.GetComponent<HealthBarBehavior>();
+            Debug.Log(healthBar);
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(this.CurrentHitPoints, this.maxHitPoints);
+            }
+
+
             if (this.CurrentHitPoints == 0)
             {
                 GameObject.Destroy(this.gameObject);
