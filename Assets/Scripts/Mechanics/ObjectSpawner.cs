@@ -55,7 +55,7 @@ namespace Assets.Scripts.Mechanics
                 }
             }
 
-            GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetWave(this.currentWave);
+            GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetWave(this.currentWave, this.currentBoost);
         }
 
         private Vector2 getSpawnPosition()
