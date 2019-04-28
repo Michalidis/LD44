@@ -404,6 +404,7 @@ MonoBehaviour:
   player_stats: {fileID: 946431761}
   player_controller: {fileID: 1530491318357307740}
   shooting_force: 175
+  shooting_damage: 0
   projectile: {fileID: 5576503415684736146, guid: 78ddf552201042d4b9b36f6034121629,
     type: 3}
   projectile_duration: 3.5
@@ -712,6 +713,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc0fa7f920006d449dbbb2cb139dd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitter: {fileID: 188413280}
+  Bonus_MaxHP: 0
+  Bonus_AttackSpeedPct: 0
+  Bonus_WalkSpeed: 0
+  Bonus_RunSpeed: 0
+  Bonus_ProjectileSpeed: 0
+  Bonus_ProjectileDamagePct: 0
+  HasStoneKey: 0
+  HasGoldenKey: 0
 --- !u!82 &1771561844
 AudioSource:
   m_ObjectHideFlags: 0
