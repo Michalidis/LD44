@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Assets.Interfaces;
+using UnityEngine;
 
 namespace Assets.Scripts.Character
 {
-    public class PlayerStats : MonoBehaviour
+    public class PlayerStats : MonoBehaviour, IDamagable
     {
         public WeaponProjectileEmitter emitter;
         public readonly float moveLimiter = 0.7f;
@@ -60,6 +61,14 @@ namespace Assets.Scripts.Character
 
             this.CurrentHitPoints -= lifeToTake;
             return lifeToTake;
+        }
+
+        public void TakeDamage(int amount)
+        {
+            Debug.Log($"TOOK DAMAGE {amount}");
+
+            this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0.0f, this.MaxHitPoints);
+            GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetHealth(this.CurrentHitPoints, this.MaxHitPoints);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Character;
+using Assets.Scripts.Monsters;
 using UnityEngine;
 
 public class FatMonster : MosterMovement
@@ -64,11 +65,11 @@ public class FatMonster : MosterMovement
             Vector2 dist = new Vector2(thisX - x, thisY - y).normalized;
 
             this.Player.GetComponent<PlayerController>().BumpPlayerIntoDirection(-dist * 10.0f);
-            PlayBump();
+            Hit();
         }
     }
 
-    private void PlayBump()
+    private void Hit()
     {
         if (this.hitClips != null && this.hitClips.Length != 0)
         {
@@ -77,5 +78,8 @@ public class FatMonster : MosterMovement
 
             this.soundPlayer.Play();
         }
+
+        var damage = this.gameObject.GetComponent<EnemyStats>().GetDamage();
+        this.Player.GetComponent<PlayerStats>().TakeDamage(damage);
     }
 }

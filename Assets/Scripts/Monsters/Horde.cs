@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Character;
+using Assets.Scripts.Monsters;
+using UnityEngine;
 
 public class Horde : MosterMovement
 {
@@ -53,7 +55,7 @@ public class Horde : MosterMovement
             }
         }
 
-        this.PlayHit();
+        this.Hit();
         this.SetAnimator(this.col.velocity);
     }
 
@@ -81,7 +83,7 @@ public class Horde : MosterMovement
         }
     }
 
-    private void PlayHit()
+    private void Hit()
     {
         if (!this.hitting)
         {
@@ -97,7 +99,11 @@ public class Horde : MosterMovement
 
                 this.soundPlayer.Play();
             }
+
+            var damage = this.gameObject.GetComponent<EnemyStats>().GetDamage();
+            this.Player.GetComponent<PlayerStats>().TakeDamage(damage);
         }
+
         this.SoundEstimate -= Time.deltaTime;
     }
 }
