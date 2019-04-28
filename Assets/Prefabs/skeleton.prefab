@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9289aae64c0abb4b85fe1d0474171e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armLength: 0.1
+  armLength: 0.2
 --- !u!114 &7735681622940691473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,4 +874,4 @@ MonoBehaviour:
   projectile: {fileID: 5576503415684736146, guid: 9e75c6138c23e4045906011f3f3e1e6b,
     type: 3}
   projectile_duration: 3.5
-  weapon_length: 0.13
+  weapon_length: 0.2
