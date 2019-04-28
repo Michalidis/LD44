@@ -27,5 +27,9 @@ public class ItemManager : MonoBehaviour
         {
             owned_items.Add(item.name, item);
         }
+        foreach (var Item in owned_items)
+        {
+            item.OnItemPickedUp(gameObject);
+        }
     }
 }

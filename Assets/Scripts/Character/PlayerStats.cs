@@ -44,7 +44,7 @@ namespace Assets.Scripts.Character
         {
             this.MaxHitPoints = STARTING_HEALTH + Bonus_MaxHP;
             this.CurrentHitPoints = STARTING_HEALTH;
-            this.ProjectilesPerSecond = STARTING_PPS / (1.0f + Bonus_AttackSpeedPct);
+            this.ProjectilesPerSecond = STARTING_PPS * (1.0f + Bonus_AttackSpeedPct);
             this.WalkSpeed = STARTING_WALK_SPEED * (1.0f + Bonus_WalkSpeed);
             this.RunSpeed = STARTING_RUN_SPEED * (1.0f + Bonus_RunSpeed);
             this.emitter.shooting_force = STARTING_PROJECTILE_SPEED * (1.0f + Bonus_ProjectileSpeed);
