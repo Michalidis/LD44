@@ -11,9 +11,9 @@ namespace Assets.Scripts.Projectiles
         {
             for (var i = 0; i < col.contacts.Length; ++i)
             {
-                var hit = col.GetContact(0).collider.gameObject;
+                var hitedObject = col.GetContact(0).collider.gameObject;
                 
-                var damagable = hit.GetComponent<IDamagable>();
+                var damagable = hitedObject.GetComponent<IDamagable>();
                 damagable?.TakeDamage(shotFrom.GetDamage());
 
                 this.gameObject.SetActive(false);

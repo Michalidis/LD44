@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7827363625717359818}
   - component: {fileID: 6476325850425965877}
   - component: {fileID: 2023503161}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Projectile_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation_offset: -90
+  fired_sound: {fileID: 0}
