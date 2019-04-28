@@ -9,7 +9,7 @@ namespace Assets.Scripts.Character
         private const int STARTING_HEALTH = 255;
         private const float STARTING_PPS = 2.15f;
         private const float STARTING_WALK_SPEED = 1.0f;
-        private const float STARTING_RUN_SPEED = 1.7f;
+        private const float STARTING_RUN_SPEED = STARTING_WALK_SPEED * 1.7f;
 
         public int CurrentHitPoints { get; private set; }
         public int MaxHitPoints { get; private set; }
