@@ -141,13 +141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
+  - {fileID: 1885072287866591741, guid: 936912bf814659c44900d6fa4fa1f503, type: 3}
   - {fileID: 3112602167026340033, guid: 817c89bce291c864b87199e614775226, type: 3}
-  - {fileID: 1062900564783304729, guid: 318396ae0e125704e9e41ad4acd7b503, type: 3}
-  - {fileID: 3639200345754615393, guid: 70b6041e64d04c44a9ac929622fb7e3b, type: 3}
-  count: 1
-  interval: 10
-  delay: 3
-  radius: 1.5
+  count: 3
+  interval: 15
+  delay: 10
+  radius: 1
 --- !u!1 &1734822983
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +404,7 @@ MonoBehaviour:
   player_stats: {fileID: 946431761}
   player_controller: {fileID: 1530491318357307740}
   shooting_force: 175
+  shooting_damage: 0
   projectile: {fileID: 5576503415684736146, guid: 78ddf552201042d4b9b36f6034121629,
     type: 3}
   projectile_duration: 3.5
@@ -710,6 +713,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc0fa7f920006d449dbbb2cb139dd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitter: {fileID: 188413280}
+  Bonus_MaxHP: 0
+  Bonus_AttackSpeedPct: 0
+  Bonus_WalkSpeed: 0
+  Bonus_RunSpeed: 0
+  Bonus_ProjectileSpeed: 0
+  Bonus_ProjectileDamagePct: 0
+  HasStoneKey: 0
+  HasGoldenKey: 0
 --- !u!82 &1771561844
 AudioSource:
   m_ObjectHideFlags: 0

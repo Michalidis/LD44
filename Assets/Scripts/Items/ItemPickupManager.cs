@@ -18,6 +18,25 @@ public class ItemPickupManager : MonoBehaviour
 
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isPickedUp)
+        {
+            return;
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            ItemAttributes itemAttributes = GetComponent<ItemAttributes>();
+            if (itemAttributes)
+            {
+                collision.gameObject.GetComponent<ItemManager>().PickUpItem(itemAttributes.Item);
+                StartCoroutine(PlanDestroy());
+            }
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (isPickedUp)

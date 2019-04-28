@@ -38,15 +38,22 @@ namespace Assets.Scripts.Mechanics
             var myPosition2D = new Vector2(myPosition.x, myPosition.y);
             var player = GameObject.FindGameObjectWithTag("Player");
 
-            for (int i = 0; i < 10; ++i)
+            for (int i = 0; i < 100; ++i)
             {
                 var spawnPositionOffset2D = Random.insideUnitCircle * this.radius;
                 var spawnPosition2D = myPosition2D + spawnPositionOffset2D;
                 var directionToMe = myPosition2D - spawnPosition2D;
 
                 var raycastHit = Physics2D.Raycast(spawnPosition2D, directionToMe, this.radius * 1.5f);
-                if (raycastHit.collider.gameObject == player)
-                return spawnPosition2D;
+                if (raycastHit.collider != null && raycastHit.collider.gameObject == player)
+                {
+                    return spawnPosition2D;
+                }
+
+                if (raycastHit.collider != null && raycastHit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
+                {
+                    return spawnPosition2D;
+                }
             }
 
             Debug.Log("NOT SPAWNED!");

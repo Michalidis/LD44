@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Character;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Projectiles;
 using UnityEngine;
 
 public class WeaponProjectileEmitter : MonoBehaviour
@@ -9,6 +10,7 @@ public class WeaponProjectileEmitter : MonoBehaviour
     public PlayerController player_controller;
 
     public float shooting_force;
+    public int shooting_damage;
 
     private AudioSource sound_player;
     public GameObject projectile;
@@ -61,6 +63,7 @@ public class WeaponProjectileEmitter : MonoBehaviour
 
                 weaponToMouseDir.Normalize();
                 _projectile.GetComponent<Rigidbody2D>().AddForce(weaponToMouseDir * shooting_force);
+                _projectile.GetComponent<ProjectileBehavior>().shotFrom = this;
                 sound_player.Play();
                 player_controller.StopRunning();
 
