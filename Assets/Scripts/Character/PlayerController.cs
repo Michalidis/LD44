@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts.Character
 {
@@ -74,7 +75,7 @@ namespace Assets.Scripts.Character
 
             if (bumping)
             {
-                bumping = false;
+                body.velocity = new Vector2(body.velocity.x / 1.5f, body.velocity.y / 1.5f);
             }
             else
             {
@@ -101,6 +102,13 @@ namespace Assets.Scripts.Character
         {
             bumping = true;
             body.velocity = direction;
+            StartCoroutine("Bumping");
+        }
+
+        private IEnumerator Bumping()
+        {
+            yield return new WaitForSeconds(0.7f); // wait half a second
+            bumping = false;
         }
     }
 }
