@@ -162,7 +162,7 @@ public class Item_HealthPotion : Item
     public override void OnItemPickedUp(GameObject player)
     {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.SetCurrentHealth(Mathf.Min(stats.MaxHitPoints, stats.MaxHitPoints + stats.MaxHitPoints * (Mathf.RoundToInt(Random.Range(20, 35)))));
+        stats.SetCurrentHealth(Mathf.RoundToInt(Mathf.Min(stats.MaxHitPoints, stats.CurrentHitPoints + stats.MaxHitPoints * Random.Range(20, 35) / 100.0f)));
         GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().SetHealth(stats.CurrentHitPoints, stats.MaxHitPoints);
     }
 }
