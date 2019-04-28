@@ -17,7 +17,7 @@ namespace Assets.Scripts.Character
 
         public AudioClip[] footsteps;
         public float footsteps_sound_delay_full;
-        public float footsteps_sound_delay;
+        private float footsteps_sound_delay;
         private AudioSource footsteps_sound_player;
 
         void Start()
