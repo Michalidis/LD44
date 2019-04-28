@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation_offset: -90
+  fired_sound: {fileID: 8300000, guid: 5259bdb84618e364a80d858bf30789a1, type: 3}

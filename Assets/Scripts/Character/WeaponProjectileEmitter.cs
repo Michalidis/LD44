@@ -6,9 +6,11 @@ using UnityEngine;
 public class WeaponProjectileEmitter : MonoBehaviour
 {
     public PlayerStats player_stats;
+    public PlayerController player_controller;
 
     public float shooting_force;
 
+    private AudioSource sound_player;
     public GameObject projectile;
     public float projectile_duration;
 
@@ -30,6 +32,13 @@ public class WeaponProjectileEmitter : MonoBehaviour
     {
         shoulder = transform.parent.transform;
         projectile_storage = new Queue<GameObject>();
+        sound_player = GetComponent<AudioSource>();
+
+        ProjectileAttributes pa = projectile.GetComponent<ProjectileAttributes>();
+        if (pa)
+        {
+            sound_player.clip = pa.fired_sound;
+        }
     }
 
     // Update is called once per frame
@@ -52,6 +61,8 @@ public class WeaponProjectileEmitter : MonoBehaviour
 
                 weaponToMouseDir.Normalize();
                 _projectile.GetComponent<Rigidbody2D>().AddForce(weaponToMouseDir * shooting_force);
+                sound_player.Play();
+                player_controller.StopRunning();
 
                 StartCoroutine(HideAndStoreProjectile(_projectile));
             }
@@ -64,7 +75,7 @@ public class WeaponProjectileEmitter : MonoBehaviour
         shoulderToMouseDir.z = 0;
         projectile.transform.position += (weapon_length * shoulderToMouseDir.normalized);
 
-        RotationOffset rotation_offset = projectile.GetComponent<RotationOffset>();
+        ProjectileAttributes rotation_offset = projectile.GetComponent<ProjectileAttributes>();
         projectile.transform.eulerAngles = new Vector3(projectile.transform.eulerAngles.x,
             projectile.transform.eulerAngles.y,
             projectile.transform.eulerAngles.z + (rotation_offset ? rotation_offset.rotation_offset : 0.0f));

@@ -21,11 +21,21 @@ namespace Assets.Scripts.Character
             animator = GetComponent<Animator>();
         }
 
+        void ToggleRunning()
+        {
+            running = !running;
+        }
+
+        public void StopRunning()
+        {
+            running = false;
+        }
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                running = !running;
+                ToggleRunning();
             }
             // Gives a value between -1 and 1
             horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left

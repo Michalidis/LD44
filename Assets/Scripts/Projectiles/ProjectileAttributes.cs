@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationOffset : MonoBehaviour
+public class ProjectileAttributes : MonoBehaviour
 {
     public float rotation_offset;
+    public AudioClip fired_sound;
 }
