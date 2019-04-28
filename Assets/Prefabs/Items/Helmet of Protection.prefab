@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item_count: 1
   item_name: Helmet of Protection
-  item_description: Enemy attacks deal less damage
+  item_description: Increases your maximum health
   particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
     type: 3}
 --- !u!114 &9092946081555995539
