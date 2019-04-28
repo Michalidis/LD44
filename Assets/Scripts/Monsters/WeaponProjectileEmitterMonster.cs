@@ -1,10 +1,15 @@
 ﻿using Assets.Scripts.Character;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Interfaces;
+using Assets.Scripts.Monsters;
+using Assets.Scripts.Projectiles;
 using UnityEngine;
 
-public class WeaponProjectileEmitterMonster : MonoBehaviour
+
+public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEmitter
 {
+    public GameObject skeleton;
     public float ShotsPerSecond = 0.5f;
 
     public float shooting_force = 175.0f;
@@ -59,6 +64,7 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour
 
             weaponToMouseDir.Normalize();
             projectile.GetComponent<Rigidbody2D>().AddForce(weaponToMouseDir * this.shooting_force);
+            projectile.GetComponent<ProjectileBehavior>().shotFrom = this;
             this.sound_player.Play();
 
             this.StartCoroutine(this.HideAndStoreProjectile(projectile));
@@ -101,5 +107,10 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour
         yield return new WaitForSeconds(this.projectile_duration);
         this.projectile_storage.Enqueue(projectile);
         projectile.SetActive(false);
+    }
+
+    public int GetDamage()
+    {
+        return this.skeleton.GetComponent<EnemyStats>().GetDamage();
     }
 }

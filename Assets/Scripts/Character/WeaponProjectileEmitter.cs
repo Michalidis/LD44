@@ -1,10 +1,11 @@
 ﻿using Assets.Scripts.Character;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Interfaces;
 using Assets.Scripts.Projectiles;
 using UnityEngine;
 
-public class WeaponProjectileEmitter : MonoBehaviour
+public class WeaponProjectileEmitter : MonoBehaviour, IWeaponProjectileEmitter
 {
     public PlayerStats player_stats;
     public PlayerController player_controller;
@@ -108,5 +109,10 @@ public class WeaponProjectileEmitter : MonoBehaviour
         yield return new WaitForSeconds(projectile_duration);
         projectile_storage.Enqueue(projectile);
         projectile.SetActive(false);
+    }
+
+    public int GetDamage()
+    {
+        return this.shooting_damage;
     }
 }
