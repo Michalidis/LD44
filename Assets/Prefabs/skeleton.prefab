@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 7735681621931141324}
   - component: {fileID: 2116019959}
   - component: {fileID: 2116019967}
+  - component: {fileID: -8192179407892538618}
   m_Layer: 0
   m_Name: skeleton
   m_TagString: Untagged
@@ -646,6 +647,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   bar: {fileID: 550190182}
+--- !u!114 &-8192179407892538618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735681621931141325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4355859ae1a81554fbfdd802f6d652cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnsureLoot: 0
+  LootTable:
+  - {fileID: 3810651938803769108, guid: 76b7ef9683830ac4390f2e91959bbf05, type: 3}
+  ChanceTable:
+  - 5
 --- !u!1 &7735681622940691469
 GameObject:
   m_ObjectHideFlags: 0

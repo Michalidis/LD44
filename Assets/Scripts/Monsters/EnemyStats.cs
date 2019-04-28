@@ -36,6 +36,12 @@ namespace Assets.Scripts.Monsters
 
         void JustDied()
         {
+            GameObject loot = GetComponent<LootManager>().GetLootItem();
+            if (loot)
+            {
+                GameObject instance = Instantiate(loot);
+                loot.transform.localPosition = transform.localPosition;
+            }
             Destroy(gameObject);
         }
 
