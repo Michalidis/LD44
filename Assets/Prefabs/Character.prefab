@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 1862128778}
   - component: {fileID: 1862128780}
   - component: {fileID: 1862128779}
+  - component: {fileID: 188413280}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -191,6 +192,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armLength: 0.125
+--- !u!114 &188413280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862128777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2b492de11bf4e48a71a75c31956a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_stats: {fileID: 946431761}
+  shooting_force: 100
+  projectile: {fileID: 5576503415684736146, guid: 78ddf552201042d4b9b36f6034121629,
+    type: 3}
+  projectile_duration: 3.5
+  weapon_length: 0.13
 --- !u!1 &2087323185
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7309d9086be54464d8411337ece55df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 1
+  playerStats: {fileID: 946431761}
 --- !u!50 &1530491318357307743
 Rigidbody2D:
   serializedVersion: 4

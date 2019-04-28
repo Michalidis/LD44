@@ -4,17 +4,16 @@ namespace Assets.Scripts.Character
 {
     public class PlayerController : MonoBehaviour
     {
+        public PlayerStats playerStats;
 
         Rigidbody2D body;
         Animator animator;
 
         bool bumping;
+        bool running;
 
         float horizontal;
         float vertical;
-        float moveLimiter = 0.7f;
-
-        public float runSpeed = 1.0f;
 
         void Start()
         {
@@ -24,6 +23,10 @@ namespace Assets.Scripts.Character
 
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                running = !running;
+            }
             // Gives a value between -1 and 1
             horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
             vertical = Input.GetAxisRaw("Vertical"); // -1 is down
@@ -34,8 +37,22 @@ namespace Assets.Scripts.Character
             if (horizontal != 0 && vertical != 0) // Check for diagonal movement
             {
                 // limit movement speed diagonally, so you move at 70% speed
-                horizontal *= moveLimiter;
-                vertical *= moveLimiter;
+                horizontal *= playerStats.moveLimiter;
+                vertical *= playerStats.moveLimiter;
+            }
+            else if (running && horizontal == 0 && vertical == 0)
+            {
+                running = false;
+            }
+
+            float speed;
+            if (running)
+            {
+                speed = playerStats.RunSpeed;
+            }
+            else
+            {
+                speed = playerStats.WalkSpeed;
             }
 
             if (bumping)
@@ -44,8 +61,14 @@ namespace Assets.Scripts.Character
             }
             else
             {
-                body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+                body.velocity = new Vector2(horizontal * speed, vertical * speed);
             }
+
+            if (body.velocity.magnitude > 0.0f)
+            {
+                animator.speed = body.velocity.magnitude;
+            }
+
             animator.SetFloat("speed", body.velocity.magnitude);
             animator.SetFloat("horizontal", horizontal);
             animator.SetFloat("vertical", vertical);
