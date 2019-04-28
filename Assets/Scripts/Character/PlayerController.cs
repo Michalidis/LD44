@@ -86,7 +86,7 @@ namespace Assets.Scripts.Character
                 animator.speed = body.velocity.magnitude;
                 if (footsteps_sound_delay <= 0.0f)
                 {
-                    footsteps_sound_player.clip = footsteps[Mathf.RoundToInt(Random.Range(0, 2))];
+                    footsteps_sound_player.clip = footsteps[Mathf.RoundToInt(Random.Range(0, footsteps.Length))];
                     footsteps_sound_player.Play();
                     footsteps_sound_delay = footsteps_sound_delay_full / animator.speed;
                 }
