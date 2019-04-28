@@ -1,0 +1,23 @@
+1st level art:
+https://assetstore.unity.com/packages/2d/textures-materials/forest-pixel-art-tileset-126090
+
+items:
+https://assetstore.unity.com/packages/2d/gui/icons/fantasy-inventory-icons-free-143805
+https://assetstore.unity.com/packages/2d/environments/free-game-items-131764
+
+character:
+https://opengameart.org/content/open-gunner-starter-kit
+
+spell icons:
+https://opengameart.org/content/attack-icons-wesnoth
+https://opengameart.org/content/painterly-spell-icons-part-1
+https://opengameart.org/content/painterly-spell-icons-part-2
+https://opengameart.org/content/painterly-spell-icons-part-3
+
+laser projectiles:
+https://opengameart.org/content/bullet-collection-1-m484
+https://opengameart.org/content/bullet-collection-2-m484-games
+https://opengameart.org/content/lasers-and-beams
+
+Level 1 ambient sound:
+https://opengameart.org/content/forest-ambience
