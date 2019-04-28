@@ -1,12 +1,12 @@
 ﻿using Assets.Interfaces;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
 {
     public class UIBehavior : MonoBehaviour
     {
         [SerializeField] private HealthBarBehavior healthBar;
+        [SerializeField] private WaveCounterBehavior waveCounter;
         [SerializeField] private GameObject interactText;
 
         private Interactable interactingWith;
@@ -30,6 +30,11 @@ namespace Assets.Scripts.UI
         public void SetHealth(int current, int max)
         {
             this.healthBar.SetHealth(current, max);
+        }
+
+        public void SetWave(int number)
+        {
+            this.waveCounter.SetWave(number);
         }
 
         public void MayInteract(Interactable with)

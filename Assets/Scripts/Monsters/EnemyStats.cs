@@ -10,6 +10,8 @@ namespace Assets.Scripts.Monsters
         [SerializeField] private int damage;
         public int CurrentHitPoints { get; private set; }
 
+        private float statMultiplier = 1f;
+
         void Start()
         {
             this.CurrentHitPoints = maxHitPoints;
@@ -17,20 +19,34 @@ namespace Assets.Scripts.Monsters
 
         public void TakeDamage(int amount)
         {
-            Debug.Log($"ENEMY TOOK DAMAGE: {amount}");
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0f, this.maxHitPoints);
 
-            var healthBar = this.gameObject.GetComponent<HealthBarBehavior>();
-            Debug.Log(healthBar);
-            if (healthBar != null)
-            {
-                healthBar.SetHealth(this.CurrentHitPoints, this.maxHitPoints);
-            }
+            this.TryUpdateHealthBar();
 
 
             if (this.CurrentHitPoints == 0)
             {
                 JustDied();
+            }
+        }
+
+        public void SetStatMultiplier(float multiplier)
+        {
+            this.statMultiplier = multiplier;
+
+            this.CurrentHitPoints = (int)(this.statMultiplier * this.CurrentHitPoints);
+            this.maxHitPoints = (int) (this.statMultiplier * this.maxHitPoints);
+
+            this.TryUpdateHealthBar();
+        }
+
+        void TryUpdateHealthBar()
+        {
+            var healthBar = this.gameObject.GetComponent<HealthBarBehavior>();
+
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(this.CurrentHitPoints, this.maxHitPoints);
             }
         }
 
@@ -47,7 +63,7 @@ namespace Assets.Scripts.Monsters
 
         public int GetDamage()
         {
-            return this.damage;
+            return (int)(this.damage * this.statMultiplier);
         }
     }
 }
