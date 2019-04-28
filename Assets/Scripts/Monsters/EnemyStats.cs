@@ -39,8 +39,7 @@ namespace Assets.Scripts.Monsters
             GameObject loot = GetComponent<LootManager>().GetLootItem();
             if (loot)
             {
-                GameObject instance = Instantiate(loot);
-                loot.transform.localPosition = transform.localPosition;
+                GameObject instance = Instantiate(loot, transform.position, transform.rotation);
             }
             Destroy(gameObject);
         }
