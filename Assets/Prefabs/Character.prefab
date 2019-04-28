@@ -148,7 +148,7 @@ MonoBehaviour:
   - {fileID: 3112602167026340033, guid: 817c89bce291c864b87199e614775226, type: 3}
   count: 3
   interval: 15
-  delay: 5
+  delay: 10
   radius: 1
 --- !u!1 &1734822983
 GameObject:

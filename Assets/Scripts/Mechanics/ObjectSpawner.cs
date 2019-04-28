@@ -45,12 +45,12 @@ namespace Assets.Scripts.Mechanics
                 var directionToMe = myPosition2D - spawnPosition2D;
 
                 var raycastHit = Physics2D.Raycast(spawnPosition2D, directionToMe, this.radius * 1.5f);
-                if (raycastHit.collider.gameObject == player)
+                if (raycastHit.collider != null && raycastHit.collider.gameObject == player)
                 {
                     return spawnPosition2D;
                 }
 
-                if (raycastHit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
+                if (raycastHit.collider != null && raycastHit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
                 {
                     return spawnPosition2D;
                 }
