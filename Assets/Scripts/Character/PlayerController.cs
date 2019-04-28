@@ -15,10 +15,16 @@ namespace Assets.Scripts.Character
         float horizontal;
         float vertical;
 
+        public AudioClip[] footsteps;
+        public float footsteps_sound_delay_full;
+        public float footsteps_sound_delay;
+        private AudioSource footsteps_sound_player;
+
         void Start()
         {
             body = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            footsteps_sound_player = GetComponent<AudioSource>();
         }
 
         void ToggleRunning()
@@ -40,6 +46,7 @@ namespace Assets.Scripts.Character
             // Gives a value between -1 and 1
             horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
             vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+            footsteps_sound_delay -= Time.deltaTime;
         }
 
         void FixedUpdate()
@@ -77,6 +84,12 @@ namespace Assets.Scripts.Character
             if (body.velocity.magnitude > 0.0f)
             {
                 animator.speed = body.velocity.magnitude;
+                if (footsteps_sound_delay <= 0.0f)
+                {
+                    footsteps_sound_player.clip = footsteps[Mathf.RoundToInt(Random.Range(0, 2))];
+                    footsteps_sound_player.Play();
+                    footsteps_sound_delay = footsteps_sound_delay_full / animator.speed;
+                }
             }
 
             animator.SetFloat("speed", body.velocity.magnitude);
