@@ -20,6 +20,9 @@ game mechanics:
 	- boss item drop
 	- kupovanie chestiek (spawnute po mape) za currency
 	- enemies can drop health potions
+	- damage numbers on enemies
+	- background music for boss fight
+	- main menu
 
 	
 YOUR LIFE IS CURRENCY
