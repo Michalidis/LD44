@@ -53,13 +53,16 @@ public class Dragon : MonsterMovement
         float thisY = gameObject.transform.position.y;
 
         Vector2 dist = new Vector2(x - thisX, y - thisY).normalized;
-        if (dist.x > 0 && transform.localScale.x > 0)
+        if (!animator.GetBool("is_dead"))
         {
-            transform.localScale *= swappingVector;
-        }
-        else if (dist.x < 0 && transform.localScale.x < 0)
-        {
-            transform.localScale *= swappingVector;
+            if (dist.x > 0 && transform.localScale.x > 0)
+            {
+                transform.localScale *= swappingVector;
+            }
+            else if (dist.x < 0 && transform.localScale.x < 0)
+            {
+                transform.localScale *= swappingVector;
+            }
         }
 
         body.velocity = dist * Speed;

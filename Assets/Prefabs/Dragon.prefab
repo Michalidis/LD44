@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 2293821922898201251}
   - component: {fileID: 7422915738061660336}
   - component: {fileID: 6453904176463320565}
+  - component: {fileID: 342004938421679791}
   m_Layer: 8
   m_Name: Dragon
   m_TagString: Enemy
@@ -795,3 +796,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   bar: {fileID: 451278390}
+--- !u!114 &342004938421679791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293821922898201250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4355859ae1a81554fbfdd802f6d652cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnsureLoot: 1
+  LootTable:
+  - {fileID: 3526393460778369397, guid: 184f4a27b56c82e40b203b3b218fe9b9, type: 3}
+  - {fileID: 8063835673694249649, guid: 43092aae62a6e1745bc6da3d18608214, type: 3}
+  - {fileID: 7438624880461732059, guid: ae0ac5ce23d84a2438186fb372ee179d, type: 3}
+  ChanceTable:
+  - 0
+  - 0
+  - 0
