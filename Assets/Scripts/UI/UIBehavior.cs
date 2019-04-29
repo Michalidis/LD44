@@ -16,7 +16,7 @@ namespace Assets.Scripts.UI
         [SerializeField] private GameObject buffsBar;
 
         private Interactable interactingWith;
-        private Dictionary<string, Item> items = new Dictionary<string, Item>();
+        private Dictionary<string, GameObject> itemBuffObjects = new Dictionary<string, GameObject>();
 
         void Start()
         {
@@ -70,16 +70,16 @@ namespace Assets.Scripts.UI
         {
             var buff = GameObject.Instantiate(this.buff, this.buffsBar.transform);
             var localPosition = buff.transform.localPosition;
-            buff.transform.localPosition = new Vector3(localPosition.x - this.items.Keys.Count * 50, localPosition.y, localPosition.z);
+            buff.transform.localPosition = new Vector3(localPosition.x - this.itemBuffObjects.Keys.Count * 50, localPosition.y, localPosition.z);
 
-            buff.GetComponent<BuffBehavior>().SetBuffImage(itemSprite);
+            buff.GetComponent<BuffBehavior>().SetData(itemSprite, item.name, item.description);
 
-            this.items.Add(item.name, item);
+            this.itemBuffObjects.Add(item.name, buff);
         }
 
         public void UpdateItemCount(Item item, int count)
         {
-
+            this.itemBuffObjects[item.name].GetComponent<BuffBehavior>().SetCount(count);
         }
 
     }
