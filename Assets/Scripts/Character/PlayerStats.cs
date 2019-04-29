@@ -59,9 +59,22 @@ namespace Assets.Scripts.Character
             this.emitter.shooting_damage = (int)(STARTING_PROJECTILE_DAMAGE * (1.0f + Bonus_ProjectileDamagePct));
         }
 
+        public int HealPercentage(float percentage)
+        {
+            int lifeToHeal = (int)(MaxHitPoints * percentage);
+            if (lifeToHeal + CurrentHitPoints > MaxHitPoints)
+            {
+                CurrentHitPoints = MaxHitPoints;
+                return MaxHitPoints - CurrentHitPoints;
+            }
+
+            CurrentHitPoints += lifeToHeal;
+            return lifeToHeal;
+        }
+
         public int TryTakeDamagePercentage(float percentage)
         {
-            int lifeToTake = (int) (this.MaxHitPoints * percentage);
+            int lifeToTake = (int)(this.MaxHitPoints * percentage);
             if (lifeToTake >= CurrentHitPoints)
             {
                 return 0;
