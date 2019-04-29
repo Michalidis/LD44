@@ -131,7 +131,7 @@ MonoBehaviour:
   item_name: Hat of Curse
   item_description: Your attacks have a chance to curse your target, slowing them
     down
-  particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
+  particle_system: {fileID: 3319167472812909450, guid: ff6380f8f237acd408f9066a220aec1c,
     type: 3}
 --- !u!114 &1063611509018128020
 MonoBehaviour:

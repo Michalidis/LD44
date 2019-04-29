@@ -129,7 +129,7 @@ MonoBehaviour:
   item_count: 1
   item_name: Shield of Blocking
   item_description: Grants you a chance to completely avoid being damaged
-  particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
+  particle_system: {fileID: 3319167472812909450, guid: ff6380f8f237acd408f9066a220aec1c,
     type: 3}
 --- !u!114 &2783549234691893710
 MonoBehaviour:

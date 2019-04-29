@@ -131,7 +131,7 @@ MonoBehaviour:
   item_name: Ruby of Fire
   item_description: Your attacks have a chance to burn your enemies, dealing periodic
     damage
-  particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
+  particle_system: {fileID: 4577250240385943843, guid: cbac6dd8f84c4254bbfc8773f1927ba4,
     type: 3}
 --- !u!114 &3526393460778369385
 MonoBehaviour:

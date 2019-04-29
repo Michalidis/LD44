@@ -1,5 +1,7 @@
-﻿using Assets.Scripts.Character;
+﻿using Assets.Interfaces;
+using Assets.Scripts.Character;
 using Assets.Scripts.Monsters;
+using Assets.Scripts.Projectiles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -144,11 +146,47 @@ public class Item_GoldenKey : Item
     }
 }
 
-public class Item_RubyOfFire : Item
+public class Item_RubyOfFire : Item, IWeaponProjectileEmitter
 {
+    private GameObject _player;
+    public int GetDamage()
+    {
+        return _player.GetComponentInChildren<WeaponProjectileEmitter>().GetDamage();
+    }
+
     public override void OnEnemyStruck(GameObject player, GameObject enemy)
     {
-        throw new System.NotImplementedException();
+        if (_player == null)
+        {
+            _player = player;
+        }
+
+        if (Random.Range(0, 5) <= 2)
+        {
+            SpecialsHolder holder = player.GetComponentInChildren<SpecialsHolder>();
+            holder.StartCoroutine(LaunchFireballs(holder, count));
+        }
+    }
+
+    IEnumerator LaunchFireballs(SpecialsHolder holder, int fireball_amount)
+    {
+        for (var i = 0; i < fireball_amount; i++)
+        {
+            yield return new WaitForSeconds(0.2f);
+            GameObject fireball = GameObject.Instantiate(holder.Fireball, holder.transform.position, holder.transform.rotation);
+            fireball.GetComponent<ProjectileBehavior>().shotFrom = this;
+            Rigidbody2D rigidbody = fireball.GetComponent<Rigidbody2D>();
+            rigidbody.AddForce(new Vector2(Random.Range(-150.0f, 150.0f), Random.Range(120.0f, 150.0f)));
+            holder.StartCoroutine(StopFireballAndSeekEnemy(rigidbody));
+        }
+    }
+
+    IEnumerator StopFireballAndSeekEnemy(Rigidbody2D fireball)
+    {
+        yield return new WaitForSeconds(0.15f);
+        fireball.velocity = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
+        fireball.GetComponent<FireballSeeker>().isSeeking = true;
     }
 }
 

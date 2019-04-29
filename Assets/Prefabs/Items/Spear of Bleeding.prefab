@@ -130,7 +130,7 @@ MonoBehaviour:
   item_name: Spear of Bleeding
   item_description: Your attacks have a chance to bleed your enemies, dealing periodic
     damage
-  particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
+  particle_system: {fileID: 9159627781349132613, guid: 18fd9d3cbc4c21b4ea50ea0a09fac9af,
     type: 3}
 --- !u!114 &7438624880461732055
 MonoBehaviour:

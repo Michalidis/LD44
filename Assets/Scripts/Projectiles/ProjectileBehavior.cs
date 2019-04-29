@@ -14,7 +14,7 @@ namespace Assets.Scripts.Projectiles
                 var hitedObject = col.GetContact(0).collider.gameObject;
                 
                 var damagable = hitedObject.GetComponent<IDamagable>();
-                damagable?.TakeDamage(shotFrom.GetDamage());
+                damagable?.TakeDamage(shotFrom.GetDamage(), !gameObject.GetComponent<FireballSeeker>());
 
                 this.gameObject.SetActive(false);
                 return;
