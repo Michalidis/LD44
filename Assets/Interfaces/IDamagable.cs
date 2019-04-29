@@ -2,6 +2,6 @@
 {
     interface IDamagable
     {
-        void TakeDamage(int amount);
+        void TakeDamage(int amount, bool apply_on_hit_effects = true);
     }
 }

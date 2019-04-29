@@ -21,7 +21,7 @@ namespace Assets.Scripts.Monsters
             player = p_itemManager.gameObject;
         }
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(int amount, bool apply_on_hit_effects = true)
         {
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0f, this.maxHitPoints);
 
@@ -35,9 +35,12 @@ namespace Assets.Scripts.Monsters
             }
             else
             {
-                foreach (var item in p_itemManager.owned_items)
+                if (apply_on_hit_effects)
                 {
-                    item.Value.OnEnemyStruck(player, gameObject);
+                    foreach (var item in p_itemManager.owned_items)
+                    {
+                        item.Value.OnEnemyStruck(player, gameObject);
+                    }
                 }
             }
         }

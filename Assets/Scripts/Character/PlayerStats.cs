@@ -88,7 +88,7 @@ namespace Assets.Scripts.Character
             return lifeToTake;
         }
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(int amount, bool apply_on_hit_effects = false)
         {
             foreach (var item in p_itemManager.owned_items)
             {

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Character;
+using Assets.Scripts.Monsters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,7 +57,6 @@ public class Item_HatOfCurse : Item
     {
         MonsterMovement movement = enemy.GetComponent<MonsterMovement>();
         float final_amount = movement.Speed * amount;
-        Debug.Log(final_amount + " " + amount + " " + movement.Speed);
         movement.Speed -= amount;
         yield return new WaitForSeconds(duration);
         movement.Speed += amount;
@@ -69,7 +69,7 @@ public class Item_ShieldOfBlocking : Item
     public override void OnStruckByEnemy(GameObject player, ref int damage)
     {
         // 5% chance to block damage for each shield
-        if ((count * 5 * (5 / (count + 1))) >= Random.Range(0, 100))
+        if (count * 5 * (5 / (count + 1)) >= Random.Range(0, 100))
         {
             damage = 0;
         }
@@ -80,7 +80,26 @@ public class Item_SpearOfBleeding : Item
 {
     public override void OnEnemyStruck(GameObject player, GameObject enemy)
     {
-        throw new System.NotImplementedException();
+        int bleed_amount = count * 4;
+        int tick_amount = count + 1;
+        if (Random.Range(0, 2) <= 1)
+        {
+            player.GetComponent<PlayerStats>().StartCoroutine(BleedEnemy(enemy, bleed_amount, tick_amount, 0.5f));
+        }
+    }
+
+    IEnumerator BleedEnemy(GameObject enemy, int periodic_amount, int tick_amount, float tick_speed)
+    {
+        Debug.Log(tick_amount + " " + periodic_amount + " " + tick_speed);
+        EnemyStats _enemy = enemy.GetComponent<EnemyStats>();
+        for (var i = 0; i < tick_amount; i++)
+        {
+            yield return new WaitForSeconds(tick_speed);
+            if (_enemy != null)
+            {
+                _enemy.TakeDamage(periodic_amount, false);
+            }
+        }
     }
 }
 
