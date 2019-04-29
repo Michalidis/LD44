@@ -33,4 +33,19 @@ public class ItemManager : MonoBehaviour
 
         item.OnItemPickedUp(gameObject);
     }
+
+    public bool TryResurrect()
+    {
+        if (owned_items.ContainsKey("Book of Resurrection"))
+        {
+            Item book = owned_items["Book of Resurrection"];
+            if (book.count > 0)
+            {
+                book.count--;
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

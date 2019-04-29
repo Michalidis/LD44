@@ -80,6 +80,12 @@ namespace Assets.Scripts.Character
 
             if (this.CurrentHitPoints == 0)
             {
+                if (GetComponent<ItemManager>().TryResurrect())
+                {
+                    CurrentHitPoints = MaxHitPoints;
+                    return;
+                }
+
                 ui.OnPlayerDeath();
 
                 this.gameObject.GetComponent<PlayerController>()?.Disable();
