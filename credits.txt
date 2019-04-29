@@ -33,3 +33,9 @@ https://opengameart.org/content/across-the-stars
 
 Skeleton projectile sound:
 https://opengameart.org/content/q009s-weapon-sounds
+
+character death and hit sounds:
+https://opengameart.org/content/hurt-death-sound-effect-for-character
+
+resurrect sound:
+https://opengameart.org/content/up-3x
