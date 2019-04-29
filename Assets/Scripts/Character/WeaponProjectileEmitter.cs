@@ -20,6 +20,8 @@ public class WeaponProjectileEmitter : MonoBehaviour, IWeaponProjectileEmitter
     private Transform shoulder;
     public float weapon_length;
 
+    private ItemManager p_itemManager;
+
     private float shooting_cooldown;
     private enum Buttons
     {
@@ -36,6 +38,8 @@ public class WeaponProjectileEmitter : MonoBehaviour, IWeaponProjectileEmitter
         shoulder = transform.parent.transform;
         projectile_storage = new Queue<GameObject>();
         sound_player = GetComponent<AudioSource>();
+
+        p_itemManager = player_stats.GetComponent<ItemManager>();
 
         ProjectileAttributes pa = projectile.GetComponent<ProjectileAttributes>();
         if (pa)
@@ -57,18 +61,32 @@ public class WeaponProjectileEmitter : MonoBehaviour, IWeaponProjectileEmitter
             if (shooting_cooldown <= 0.0f)
             {
                 shooting_cooldown = 1.0f / player_stats.ProjectilesPerSecond;
-                Vector2 weaponToMouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                ShootProjectile();
 
-                GameObject _projectile = GetProjectileForShooting();
-                AdjustProjectilePositionAndRotation(_projectile);
+            }
+        }
+    }
 
-                weaponToMouseDir.Normalize();
-                _projectile.GetComponent<Rigidbody2D>().AddForce(weaponToMouseDir * shooting_force);
-                _projectile.GetComponent<ProjectileBehavior>().shotFrom = this;
-                sound_player.Play();
-                player_controller.StopRunning();
+    public void ShootProjectile(bool trigger_on_shoot_events = true)
+    {
+        Vector2 weaponToMouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
-                StartCoroutine(HideAndStoreProjectile(_projectile));
+        GameObject _projectile = GetProjectileForShooting();
+        AdjustProjectilePositionAndRotation(_projectile);
+
+        weaponToMouseDir.Normalize();
+        _projectile.GetComponent<Rigidbody2D>().AddForce(weaponToMouseDir * shooting_force);
+        _projectile.GetComponent<ProjectileBehavior>().shotFrom = this;
+        sound_player.Play();
+        player_controller.StopRunning();
+
+        StartCoroutine(HideAndStoreProjectile(_projectile));
+
+        if (trigger_on_shoot_events)
+        {
+            foreach (var item in p_itemManager.owned_items)
+            {
+                item.Value.OnProjectileShot(player_stats.gameObject, weaponToMouseDir * shooting_force);
             }
         }
     }

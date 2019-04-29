@@ -14,6 +14,7 @@ public abstract class Item
     public virtual void OnStruckByEnemy(GameObject player, ref int damage) { return; }
     public virtual void OnEnemyStruck(GameObject player, GameObject enemy) { return; }
     public virtual void OnEnemyKilled(GameObject player, GameObject enemy) { return; }
+    public virtual void OnProjectileShot(GameObject player, Vector2 projectile_direction) { return; }
 }
 
 public class Item_RingOfHealing : Item
@@ -90,7 +91,6 @@ public class Item_SpearOfBleeding : Item
 
     IEnumerator BleedEnemy(GameObject enemy, int periodic_amount, int tick_amount, float tick_speed)
     {
-        Debug.Log(tick_amount + " " + periodic_amount + " " + tick_speed);
         EnemyStats _enemy = enemy.GetComponent<EnemyStats>();
         for (var i = 0; i < tick_amount; i++)
         {
@@ -154,9 +154,23 @@ public class Item_RubyOfFire : Item
 
 public class Item_SwordOfRapidStrikes : Item
 {
-    public override void OnEnemyStruck(GameObject player, GameObject enemy)
+    public override void OnProjectileShot(GameObject player, Vector2 projectile_direction)
     {
-        throw new System.NotImplementedException();
+        WeaponProjectileEmitter gun = player.GetComponentInChildren<WeaponProjectileEmitter>();
+        gun.StartCoroutine(ShootProjectile(gun, count, 0.5f / (count + 1) / 2));
+        
+    }
+
+    IEnumerator ShootProjectile(WeaponProjectileEmitter gun, int shot_amount, float shooting_speed)
+    {
+        for (var i = 0; i < shot_amount; i++)
+        {
+            yield return new WaitForSeconds(shooting_speed);
+            if (gun != null)
+            {
+                gun.ShootProjectile(false);
+            }
+        }
     }
 }
 
