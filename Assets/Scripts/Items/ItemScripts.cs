@@ -158,7 +158,6 @@ public class Item_SwordOfRapidStrikes : Item
     {
         WeaponProjectileEmitter gun = player.GetComponentInChildren<WeaponProjectileEmitter>();
         gun.StartCoroutine(ShootProjectile(gun, count, 0.5f / (count + 1) / 2));
-        
     }
 
     IEnumerator ShootProjectile(WeaponProjectileEmitter gun, int shot_amount, float shooting_speed)

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item_count: 1
   item_name: Sword of Rapid Strikes
-  item_description: Your successful hits have a chance to strike an enemy again
+  item_description: Multiple shots!
   particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
     type: 3}
 --- !u!114 &255792292948456389
