@@ -30,3 +30,6 @@ https://opengameart.org/content/spell-4-fire
 
 main menu:
 https://opengameart.org/content/across-the-stars
+
+Skeleton projectile sound:
+https://opengameart.org/content/q009s-weapon-sounds
