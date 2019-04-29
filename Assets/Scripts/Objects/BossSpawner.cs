@@ -10,7 +10,7 @@ namespace Assets.Scripts.Objects
 
         public override void PlayerInteract(GameObject player)
         {
-            GameObject.Instantiate(bossPrefab, this.gameObject.transform);
+            GameObject.Instantiate(bossPrefab, this.gameObject.transform.position, Quaternion.identity);
             GameObject.Destroy(this.gameObject);
             Debug.Log("CREATED BOSS");
         }
