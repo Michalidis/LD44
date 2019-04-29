@@ -5,8 +5,9 @@ using UnityEngine;
 public class SpecialsHolder : MonoBehaviour
 {
     public GameObject Fireball;
-    public AudioClip Fireball_sound;
     public AudioSource audio_player;
+    public AudioClip Fireball_sound;
+    public AudioClip Item_picked_up;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,11 @@ public class SpecialsHolder : MonoBehaviour
         
     }
 
+    public void PlayItemPickedUpSound()
+    {
+        audio_player.clip = Item_picked_up;
+        audio_player.Play();
+    }
     public void PlayFireballSound()
     {
         audio_player.clip = Fireball_sound;

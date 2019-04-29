@@ -143,8 +143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fireball: {fileID: 3237435208113710128, guid: e27fa266b6bf6c4448b045ef7acc1188,
     type: 3}
-  Fireball_sound: {fileID: 8300000, guid: c05cfd0eeb1aa7a44ad8930f7008a934, type: 3}
   audio_player: {fileID: 0}
+  Fireball_sound: {fileID: 8300000, guid: c05cfd0eeb1aa7a44ad8930f7008a934, type: 3}
+  Item_picked_up: {fileID: 8300000, guid: eec7dfe0cf11e7a44aa53961f9a12222, type: 3}
 --- !u!82 &879750994
 AudioSource:
   m_ObjectHideFlags: 0

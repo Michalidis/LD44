@@ -32,28 +32,8 @@ public class ItemPickupManager : MonoBehaviour
             if (itemAttributes)
             {
                 collision.gameObject.GetComponent<ItemManager>().PickUpItem(itemAttributes.Item);
+                collision.gameObject.GetComponentInChildren<SpecialsHolder>().PlayItemPickedUpSound();
                 StartCoroutine(PlanDestroy());
-            }
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isPickedUp)
-        {
-            return;
-        }
-
-        foreach (var contact in collision.contacts)
-        {
-            if (contact.collider.tag == "Player")
-            {
-                ItemAttributes itemAttributes = GetComponent<ItemAttributes>();
-                if (itemAttributes)
-                {
-                    contact.collider.GetComponent<ItemManager>().PickUpItem(itemAttributes.Item);
-                    StartCoroutine(PlanDestroy());
-                }
             }
         }
     }

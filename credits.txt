@@ -39,3 +39,6 @@ https://opengameart.org/content/hurt-death-sound-effect-for-character
 
 resurrect sound:
 https://opengameart.org/content/up-3x
+
+item pickup sound:
+https://opengameart.org/content/inventory-sound-effects
