@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Monsters
 {
-    public class EnemyStats : MonoBehaviour, IDamagable
+    public class EnemyStats : VisibleDamagableBehavior
     {
         [SerializeField] private int maxHitPoints;
         [SerializeField] private int damage;
@@ -21,8 +21,10 @@ namespace Assets.Scripts.Monsters
             player = p_itemManager.gameObject;
         }
 
-        public void TakeDamage(int amount, bool apply_on_hit_effects = true)
+        public override void TakeDamage(int amount, bool apply_on_hit_effects = true)
         {
+            base.TakeDamage(amount, apply_on_hit_effects);
+
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0f, this.maxHitPoints);
 
             this.TryUpdateHealthBar();
@@ -74,6 +76,15 @@ namespace Assets.Scripts.Monsters
             {
                 item.Value.OnEnemyKilled(player, gameObject);
             }
+
+            this.gameObject.GetComponent<MonsterMovement>().Pause();
+            Destroy(this.transform.GetChild(0).gameObject);
+            this.gameObject.GetComponent<MonsterMovement>().SetDeathAnimation();
+            Invoke("RemoveMe", 1.0f);
+        }
+
+        void RemoveMe()
+        {
             Destroy(gameObject);
         }
 

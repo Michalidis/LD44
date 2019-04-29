@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Character
 {
-    public class PlayerStats : MonoBehaviour, IDamagable
+    public class PlayerStats : VisibleDamagableBehavior
     {
         private ItemManager p_itemManager;
 
@@ -88,8 +88,10 @@ namespace Assets.Scripts.Character
             return lifeToTake;
         }
 
-        public void TakeDamage(int amount, bool apply_on_hit_effects = false)
+        public override void TakeDamage(int amount, bool apply_on_hit_effects = false)
         {
+            base.TakeDamage(amount, apply_on_hit_effects);
+
             foreach (var item in p_itemManager.owned_items)
             {
                 item.Value.OnStruckByEnemy(gameObject, ref amount);

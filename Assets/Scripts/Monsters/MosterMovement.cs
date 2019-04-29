@@ -22,7 +22,7 @@ namespace Assets.Scripts.Monsters
             Invoke("UnPause", 1.5f);
         }
 
-        protected virtual void Pause()
+        public virtual void Pause()
         {
             this.initialSpeed = this.Speed;
             this.Speed = 0f;
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Monsters
             }
         }
 
-        protected virtual void UnPause()
+        public virtual void UnPause()
         {
             this.Speed = this.initialSpeed;
             this.gameObject.GetComponent<Collider2D>().enabled = true;
@@ -114,6 +114,15 @@ namespace Assets.Scripts.Monsters
                     Animator.SetBool("MoveLeft", false);
                 }
             }
+        }
+
+        public void SetDeathAnimation()
+        {
+            Animator.SetBool("MoveUp", false);
+            Animator.SetBool("MoveDown", false);
+            Animator.SetBool("MoveRight", false);
+            Animator.SetBool("MoveLeft", false);
+            Animator.SetBool("Death", true);
         }
     }
 }

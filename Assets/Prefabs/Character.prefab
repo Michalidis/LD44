@@ -713,6 +713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc0fa7f920006d449dbbb2cb139dd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageText: {fileID: 103046527705481550, guid: 6a7c981eb8ce09b4ea4cc7ef7c5510a3,
+    type: 3}
   emitter: {fileID: 188413280}
   Bonus_MaxHP: 0
   Bonus_AttackSpeedPct: 0

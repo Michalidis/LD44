@@ -182,7 +182,7 @@ RectTransform:
   - {fileID: 1860207035}
   - {fileID: 550190181}
   m_Father: {fileID: 7735681621931141330}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -352,7 +352,7 @@ Transform:
   m_Children:
   - {fileID: 7735681622940691468}
   m_Father: {fileID: 7735681621931141330}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7735681621931141325
 GameObject:
@@ -390,8 +390,8 @@ Transform:
   m_LocalPosition: {x: -0.437, y: -0.374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7735681621504202355}
   - {fileID: 889305405}
+  - {fileID: 7735681621504202355}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -631,6 +631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc70d74380155f4daed079fd4926fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageText: {fileID: 103046527705481550, guid: 6a7c981eb8ce09b4ea4cc7ef7c5510a3,
+    type: 3}
   maxHitPoints: 15
   damage: 15
 --- !u!114 &2116019967
