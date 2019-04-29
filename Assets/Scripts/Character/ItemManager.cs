@@ -45,6 +45,7 @@ public class ItemManager : MonoBehaviour
             if (book.count > 0)
             {
                 book.count--;
+                GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().UpdateItemCount(book, book.count);
                 return true;
             }
         }

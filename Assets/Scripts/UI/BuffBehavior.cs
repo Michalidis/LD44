@@ -11,10 +11,13 @@ namespace Assets.Scripts.UI
         [SerializeField] private GameObject description;
         [SerializeField] private Text counter;
 
+        private Color initialCounterColor;
+
         void Start()
         {
             this.description.SetActive(false);
-            this.counter.text = "";
+            this.counter.text = "1x";
+            this.initialCounterColor = this.counter.color;
         }
 
         public void SetData(Sprite sprite, string name, string description)
@@ -25,7 +28,8 @@ namespace Assets.Scripts.UI
 
         public void SetCount(int count)
         {
-            this.counter.text = count > 0 ? $"{count}x" : "";
+            this.counter.text = $"{count}x";
+            this.counter.color = count > 0 ? this.initialCounterColor : Color.red;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
