@@ -31,7 +31,7 @@ public class ItemPickupManager : MonoBehaviour
             ItemAttributes itemAttributes = GetComponent<ItemAttributes>();
             if (itemAttributes)
             {
-                collision.gameObject.GetComponent<ItemManager>().PickUpItem(itemAttributes.Item);
+                collision.gameObject.GetComponent<ItemManager>().PickUpItem(itemAttributes.Item, this.gameObject.GetComponent<SpriteRenderer>().sprite);
                 StartCoroutine(PlanDestroy());
             }
         }
@@ -51,7 +51,7 @@ public class ItemPickupManager : MonoBehaviour
                 ItemAttributes itemAttributes = GetComponent<ItemAttributes>();
                 if (itemAttributes)
                 {
-                    contact.collider.GetComponent<ItemManager>().PickUpItem(itemAttributes.Item);
+                    contact.collider.GetComponent<ItemManager>().PickUpItem(itemAttributes.Item, this.gameObject.GetComponent<SpriteRenderer>().sprite);
                     StartCoroutine(PlanDestroy());
                 }
             }

@@ -1,4 +1,6 @@
-﻿using Assets.Interfaces;
+﻿using System.Collections.Generic;
+using Assets.Interfaces;
+using Assets.Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,8 +12,11 @@ namespace Assets.Scripts.UI
         [SerializeField] private WaveCounterBehavior waveCounter;
         [SerializeField] private GameObject interactText;
         [SerializeField] private GameObject gameOverOverlay;
+        [SerializeField] private GameObject buff;
+        [SerializeField] private GameObject buffsBar;
 
         private Interactable interactingWith;
+        private Dictionary<string, Item> items = new Dictionary<string, Item>();
 
         void Start()
         {
@@ -59,6 +64,22 @@ namespace Assets.Scripts.UI
         public void OnPlayerDeath()
         {
             this.gameOverOverlay.SetActive(true);
+        }
+
+        public void AddItem(Item item, Sprite itemSprite)
+        {
+            var buff = GameObject.Instantiate(this.buff, this.buffsBar.transform);
+            var localPosition = buff.transform.localPosition;
+            buff.transform.localPosition = new Vector3(localPosition.x - this.items.Keys.Count * 50, localPosition.y, localPosition.z);
+
+            buff.GetComponent<BuffBehavior>().SetBuffImage(itemSprite);
+
+            this.items.Add(item.name, item);
+        }
+
+        public void UpdateItemCount(Item item, int count)
+        {
+
         }
 
     }
