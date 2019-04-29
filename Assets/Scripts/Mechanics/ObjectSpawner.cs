@@ -9,6 +9,7 @@ namespace Assets.Scripts.Mechanics
         private static int INCREASE_COUNT_EVERY_X_ROUND = 7;
         private static int BOOST_ENEMIES_EVERY_X_ROUND = 4;
         private static float BOOST_BONUS = 0.2f;
+        private static float INTERVAL_MULTIPLIER = 1.1f;
 
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private int count;
@@ -28,7 +29,7 @@ namespace Assets.Scripts.Mechanics
             Physics2D.IgnoreLayerCollision(10, 10);
             Physics2D.IgnoreLayerCollision(10, 11);
 
-            InvokeRepeating("Spawn", delay, interval);
+            Invoke("Spawn", delay);
         }
 
         public void Disable()
@@ -67,6 +68,8 @@ namespace Assets.Scripts.Mechanics
             }
 
             GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetWave(this.currentWave, this.currentBoost);
+            Invoke("Spawn", interval);
+            interval = (int) (interval * INTERVAL_MULTIPLIER);
         }
 
         private Vector2 getSpawnPosition()
