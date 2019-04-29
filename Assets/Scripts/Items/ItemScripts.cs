@@ -9,7 +9,10 @@ public abstract class Item
     public string name;
     public string description;
 
-    public abstract void OnItemPickedUp(GameObject player);
+    public virtual void OnItemPickedUp(GameObject player) { return; }
+    public virtual void OnStruckByEnemy(GameObject player, GameObject enemy) { return; }
+    public virtual void OnEnemyStruck(GameObject player, GameObject enemy) { return; }
+    public virtual void OnEnemyKilled(GameObject player, GameObject enemy) { return; }
 }
 
 public class Item_RingOfHealing : Item
@@ -43,25 +46,25 @@ public class Item_BowOfSpeed : Item
 
 public class Item_HatOfCurse : Item
 {
-    public override void OnItemPickedUp(GameObject player)
+    public override void OnEnemyStruck(GameObject player, GameObject enemy)
     {
-        return;
+        throw new System.NotImplementedException();
     }
 }
 
 public class Item_ShieldOfBlocking : Item
 {
-    public override void OnItemPickedUp(GameObject player)
+    public override void OnStruckByEnemy(GameObject player, GameObject enemy)
     {
-        return;
+        throw new System.NotImplementedException();
     }
 }
 
 public class Item_SpearOfBleeding : Item
 {
-    public override void OnItemPickedUp(GameObject player)
+    public override void OnEnemyStruck(GameObject player, GameObject enemy)
     {
-        return;
+        throw new System.NotImplementedException();
     }
 }
 
@@ -108,17 +111,17 @@ public class Item_GoldenKey : Item
 
 public class Item_RubyOfFire : Item
 {
-    public override void OnItemPickedUp(GameObject player)
+    public override void OnEnemyStruck(GameObject player, GameObject enemy)
     {
-        return;
+        throw new System.NotImplementedException();
     }
 }
 
 public class Item_SwordOfRapidStrikes : Item
 {
-    public override void OnItemPickedUp(GameObject player)
+    public override void OnEnemyStruck(GameObject player, GameObject enemy)
     {
-        return;
+        throw new System.NotImplementedException();
     }
 }
 
@@ -132,11 +135,11 @@ public class Item_RapierOfDamage : Item
     }
 }
 
-public class Item_ScepterOfLava : Item
+public class Item_ScepterOfBlood : Item
 {
-    public override void OnItemPickedUp(GameObject player)
+    public override void OnEnemyKilled(GameObject player, GameObject enemy)
     {
-        return;
+        throw new System.NotImplementedException();
     }
 }
 
@@ -152,10 +155,6 @@ public class Item_EmblemOfSprint : Item
 
 public class Item_BookOfResurrection : Item
 {
-    public override void OnItemPickedUp(GameObject player)
-    {
-        return;
-    }
 }
 
 public class Item_HealthPotion : Item
