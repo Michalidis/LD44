@@ -611,7 +611,7 @@ MonoBehaviour:
   LootTable:
   - {fileID: 3810651938803769108, guid: 76b7ef9683830ac4390f2e91959bbf05, type: 3}
   ChanceTable:
-  - 5.1
+  - 8
 --- !u!114 &1164871694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,8 +624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc70d74380155f4daed079fd4926fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 40
-  damage: 30
+  maxHitPoints: 70
+  damage: 20
 --- !u!114 &3112602167026340036
 MonoBehaviour:
   m_ObjectHideFlags: 0
