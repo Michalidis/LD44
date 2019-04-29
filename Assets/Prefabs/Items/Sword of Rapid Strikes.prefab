@@ -131,7 +131,7 @@ MonoBehaviour:
   item_count: 1
   item_name: Sword of Rapid Strikes
   item_description: Multiple shots!
-  particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
+  particle_system: {fileID: 9159627781349132613, guid: 18fd9d3cbc4c21b4ea50ea0a09fac9af,
     type: 3}
 --- !u!114 &255792292948456389
 MonoBehaviour:

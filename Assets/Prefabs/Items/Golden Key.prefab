@@ -129,7 +129,7 @@ MonoBehaviour:
   item_count: 1
   item_name: Golden Key
   item_description: Unlocks golden chest
-  particle_system: {fileID: 1084699736926510974, guid: 916845deb3454064784cf91de3a52ffe,
+  particle_system: {fileID: 7984335638795439594, guid: d717d7be69d3d304a8ef0820920c9dc7,
     type: 3}
 --- !u!114 &4722197176685849166
 MonoBehaviour:
