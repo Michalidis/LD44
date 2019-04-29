@@ -780,7 +780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageText: {fileID: 103046527705481550, guid: 6a7c981eb8ce09b4ea4cc7ef7c5510a3,
     type: 3}
-  maxHitPoints: 200
+  maxHitPoints: 3000
   damage: 50
 --- !u!114 &6453904176463320565
 MonoBehaviour:

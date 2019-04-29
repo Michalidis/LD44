@@ -7,10 +7,11 @@ namespace Assets.Scripts.Objects
     {
 
         [SerializeField] private GameObject bossPrefab;
+        [SerializeField] private GameObject spawnLocation;
 
         public override void PlayerInteract(GameObject player)
         {
-            GameObject.Instantiate(bossPrefab, this.gameObject.transform.position, Quaternion.identity);
+            GameObject.Instantiate(bossPrefab, this.spawnLocation.transform.position, Quaternion.identity);
             GameObject.Destroy(this.gameObject);
             Debug.Log("CREATED BOSS");
         }
