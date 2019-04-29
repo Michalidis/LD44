@@ -48,9 +48,21 @@ public class Item_HatOfCurse : Item
 {
     public override void OnEnemyStruck(GameObject player, GameObject enemy)
     {
-        throw new System.NotImplementedException();
+        float slow_amount = (count * 0.04f * (2 / (count + 1)));
+        player.GetComponent<PlayerStats>().StartCoroutine(SlowEnemy(enemy, slow_amount, 1.5f));
+    }
+
+    IEnumerator SlowEnemy(GameObject enemy, float amount, float duration)
+    {
+        MonsterMovement movement = enemy.GetComponent<MonsterMovement>();
+        float final_amount = movement.Speed * amount;
+        Debug.Log(final_amount + " " + amount + " " + movement.Speed);
+        movement.Speed -= amount;
+        yield return new WaitForSeconds(duration);
+        movement.Speed += amount;
     }
 }
+
 
 public class Item_ShieldOfBlocking : Item
 {

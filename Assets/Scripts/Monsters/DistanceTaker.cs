@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DistanceTaker : MosterMovement
+public class DistanceTaker : MonsterMovement
 {
     public float Speed = 0.3f;
 

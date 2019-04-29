@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WallRandomHitter : MosterMovement
+public class WallRandomHitter : MonsterMovement
 {
     private Vector2 velocity = new Vector2(0.2f, 0.2f);
     private float speed = 0.5f;

@@ -3,10 +3,8 @@ using Assets.Scripts.Character;
 using Assets.Scripts.Monsters;
 using UnityEngine;
 
-public class Horde : MosterMovement
+public class Horde : MonsterMovement
 {
-    public float Speed = 0.4f;
-
     public float MaxLeaderDistance = 0.4f;
 
     private GameObject Leader;
@@ -21,6 +19,7 @@ public class Horde : MosterMovement
     // Start is called before the first frame update
     private void Start()
     {
+        Speed = 0.4f;
         this.Init();
         this.soundPlayer = this.GetComponent<AudioSource>();
         this.hitClips = GameObject.Find("HitManager").GetComponent<HitManager>().HitClips;

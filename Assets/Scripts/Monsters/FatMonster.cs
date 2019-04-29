@@ -2,10 +2,8 @@
 using Assets.Scripts.Monsters;
 using UnityEngine;
 
-public class FatMonster : MosterMovement
+public class FatMonster : MonsterMovement
 {
-    public float Speed = 0.3f;
-
     public AudioClip[] ZombieMoanClips;
     private AudioClip[] hitClips;
     private AudioSource soundPlayer;
@@ -15,6 +13,7 @@ public class FatMonster : MosterMovement
     // Start is called before the first frame update
     private void Start()
     {
+        Speed = 0.3f;
         this.Init();
         this.soundPlayer = this.GetComponent<AudioSource>();
         this.hitClips = GameObject.Find("HitManager").GetComponent<HitManager>().HitClips;

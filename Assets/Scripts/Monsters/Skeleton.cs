@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class Skeleton : MosterMovement
+public class Skeleton : MonsterMovement
 {
     private Vector2 velocity = new Vector2(0.2f, 0.2f);
-    public float Speed = 0.5f;
 
     private void Start()
     {
+        Speed = 0.5f;
         this.Init();
     }
 

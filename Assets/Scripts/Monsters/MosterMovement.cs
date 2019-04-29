@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MosterMovement : MonoBehaviour
+public class MonsterMovement : MonoBehaviour
 {
     protected GameObject Player;
 
@@ -11,6 +11,8 @@ public class MosterMovement : MonoBehaviour
     protected Rigidbody2D body;
 
     protected System.Random random = new System.Random();
+
+    public float Speed;
 
     protected virtual void Init()
     {
