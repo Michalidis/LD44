@@ -7,6 +7,7 @@ namespace Assets.Scripts.Character
     public class PlayerStats : VisibleDamagableBehavior
     {
         private ItemManager p_itemManager;
+        private DeathHitSoundManager death_hurt_sounds;
 
         public WeaponProjectileEmitter emitter;
         public readonly float moveLimiter = 0.7f;
@@ -44,6 +45,7 @@ namespace Assets.Scripts.Character
             this.CurrentHitPoints = this.MaxHitPoints;
             p_itemManager = GetComponent<ItemManager>();
             GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetHealth(STARTING_HEALTH, STARTING_HEALTH);
+            death_hurt_sounds = GetComponentInChildren<DeathHitSoundManager>();
         }
 
 
@@ -97,6 +99,13 @@ namespace Assets.Scripts.Character
                 item.Value.OnStruckByEnemy(gameObject, ref amount);
             }
 
+            if (amount > 0)
+            {
+                if (Random.Range(0, 100) <= 60)
+                {
+                    death_hurt_sounds.PlayHurtSound();
+                }
+            }
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0.0f, this.MaxHitPoints);
 
             var ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>();
@@ -107,11 +116,13 @@ namespace Assets.Scripts.Character
                 if (p_itemManager.TryResurrect())
                 {
                     CurrentHitPoints = MaxHitPoints;
+                    death_hurt_sounds.PlayResurrectSound();
                     return;
                 }
                 else
                 {
                     ui.OnPlayerDeath();
+                    death_hurt_sounds.PlayDeathSound();
 
                     this.gameObject.GetComponent<PlayerController>()?.Disable();
                     this.gameObject.GetComponent<ObjectSpawner>()?.Disable();

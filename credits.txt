@@ -24,3 +24,21 @@ https://opengameart.org/content/forest-ambience
 
 potion:
 https://opengameart.org/content/pixel-potion-set-16x16
+
+fire sound effect:
+https://opengameart.org/content/spell-4-fire
+
+main menu:
+https://opengameart.org/content/across-the-stars
+
+Skeleton projectile sound:
+https://opengameart.org/content/q009s-weapon-sounds
+
+character death and hit sounds:
+https://opengameart.org/content/hurt-death-sound-effect-for-character
+
+resurrect sound:
+https://opengameart.org/content/up-3x
+
+item pickup sound:
+https://opengameart.org/content/inventory-sound-effects

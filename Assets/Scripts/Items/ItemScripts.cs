@@ -161,7 +161,7 @@ public class Item_RubyOfFire : Item, IWeaponProjectileEmitter
             _player = player;
         }
 
-        if (Random.Range(0, 5) <= 2)
+        if (Random.Range(0, 6) <= 1)
         {
             SpecialsHolder holder = player.GetComponentInChildren<SpecialsHolder>();
             holder.StartCoroutine(LaunchFireballs(holder, count));
@@ -173,6 +173,7 @@ public class Item_RubyOfFire : Item, IWeaponProjectileEmitter
         for (var i = 0; i < fireball_amount; i++)
         {
             yield return new WaitForSeconds(0.2f);
+            holder.PlayFireballSound();
             GameObject fireball = GameObject.Instantiate(holder.Fireball, holder.transform.position, holder.transform.rotation);
             fireball.GetComponent<ProjectileBehavior>().shotFrom = this;
             Rigidbody2D rigidbody = fireball.GetComponent<Rigidbody2D>();
