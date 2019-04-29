@@ -613,7 +613,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -631,8 +631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc70d74380155f4daed079fd4926fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 70
-  damage: 30
+  maxHitPoints: 15
+  damage: 15
 --- !u!114 &2116019967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
   LootTable:
   - {fileID: 3810651938803769108, guid: 76b7ef9683830ac4390f2e91959bbf05, type: 3}
   ChanceTable:
-  - 9
+  - 10
 --- !u!1 &7735681622940691469
 GameObject:
   m_ObjectHideFlags: 0

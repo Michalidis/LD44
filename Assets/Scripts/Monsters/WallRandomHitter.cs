@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Monsters;
+using UnityEngine;
 
 public class WallRandomHitter : MonsterMovement
 {

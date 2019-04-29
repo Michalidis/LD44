@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Monsters;
+using UnityEngine;
 
 public class Skeleton : MonsterMovement
 {
@@ -8,12 +9,12 @@ public class Skeleton : MonsterMovement
     {
         Speed = 0.5f;
         this.Init();
+        this.Spawn();
     }
 
     private void Update()
     {
         this.body.velocity = this.velocity * this.Speed;
-
         this.SetAnimator(this.body.velocity);
     }
 

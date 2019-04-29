@@ -27,6 +27,8 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
 
     private GameObject player;
 
+    private bool paused = false;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -50,6 +52,8 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
     
     private void Update()
     {
+        if (this.paused) return;
+
         if (this.shooting_cooldown > 0.0f)
         {
             this.shooting_cooldown -= Time.deltaTime;
@@ -70,6 +74,16 @@ public class WeaponProjectileEmitterMonster : MonoBehaviour, IWeaponProjectileEm
 
             this.StartCoroutine(this.HideAndStoreProjectile(projectile));
         }
+    }
+
+    public void Pause()
+    {
+        this.paused = true;
+    }
+
+    public void UnPause()
+    {
+        this.paused = false;
     }
 
     private void AdjustProjectilePositionAndRotation(GameObject projectile)

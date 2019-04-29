@@ -6,8 +6,8 @@ namespace Assets.Scripts.Mechanics
     public class ObjectSpawner : MonoBehaviour
     {
         private static Vector2 NO_HIT_VECTOR = new Vector2(55555f, 55555f);
-        private static int INCREASE_COUNT_EVERY_X_ROUND = 5;
-        private static int BOOST_ENEMIES_EVERY_X_ROUND = 2;
+        private static int INCREASE_COUNT_EVERY_X_ROUND = 7;
+        private static int BOOST_ENEMIES_EVERY_X_ROUND = 4;
         private static float BOOST_BONUS = 0.2f;
 
         [SerializeField] private GameObject[] objectsToSpawn;
@@ -25,8 +25,8 @@ namespace Assets.Scripts.Mechanics
             Physics2D.IgnoreLayerCollision(8, 9);
             Physics2D.IgnoreLayerCollision(9, 9);
             Physics2D.IgnoreLayerCollision(9, 10);
-            Physics2D.IgnoreLayerCollision(10, 9);
             Physics2D.IgnoreLayerCollision(10, 10);
+            Physics2D.IgnoreLayerCollision(10, 11);
 
             InvokeRepeating("Spawn", delay, interval);
         }

@@ -17,6 +17,8 @@ public class FatMonster : MonsterMovement
         this.Init();
         this.soundPlayer = this.GetComponent<AudioSource>();
         this.hitClips = GameObject.Find("HitManager").GetComponent<HitManager>().HitClips;
+
+        this.Spawn();
     }
 
     // Update is called once per frame

@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: -352253080719578824}
   - component: {fileID: 1821274713}
   - component: {fileID: 5807066164305800690}
+  - component: {fileID: 6656666614878221695}
   m_Layer: 8
   m_Name: Horde
   m_TagString: Enemy
@@ -621,7 +622,7 @@ MonoBehaviour:
   LootTable:
   - {fileID: 3810651938803769108, guid: 76b7ef9683830ac4390f2e91959bbf05, type: 3}
   ChanceTable:
-  - 1.8
+  - 5
 --- !u!114 &1821274713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,3 +651,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   bar: {fileID: 2061759406}
+--- !u!111 &6656666614878221695
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885072287866591741}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

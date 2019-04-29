@@ -25,6 +25,7 @@ public class Horde : MonsterMovement
         this.hitClips = GameObject.Find("HitManager").GetComponent<HitManager>().HitClips;
 
         this.StartCoroutine("FollowPlayer");
+        this.Spawn();
     }
 
     private IEnumerator FollowPlayer()
