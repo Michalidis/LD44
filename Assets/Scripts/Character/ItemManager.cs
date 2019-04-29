@@ -17,18 +17,21 @@ public class ItemManager : MonoBehaviour
 
     }
 
-    public void PickUpItem(Item item)
+    public void PickUpItem(Item item, Sprite itemSprite)
     {
         if (item.count > 0)
         {
             if (owned_items.ContainsKey(item.name))
             {
                 owned_items[item.name].count += item.count;
+                GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().UpdateItemCount(item, owned_items[item.name].count);
             }
             else
             {
                 owned_items.Add(item.name, item);
+                GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().AddItem(item, itemSprite);
             }
+            
         }
 
         item.OnItemPickedUp(gameObject);
