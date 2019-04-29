@@ -29,6 +29,7 @@ namespace Assets.Scripts.Character
         public float Bonus_RunSpeed;
         public float Bonus_ProjectileSpeed;
         public float Bonus_ProjectileDamagePct;
+        public int Bonus_HealingReceived;
 
         public bool HasStoneKey;
         public bool HasGoldenKey;
@@ -61,7 +62,7 @@ namespace Assets.Scripts.Character
 
         public int HealPercentage(float percentage)
         {
-            int lifeToHeal = (int)(MaxHitPoints * percentage);
+            int lifeToHeal = (int)(MaxHitPoints * percentage) + Bonus_HealingReceived;
             if (lifeToHeal + CurrentHitPoints > MaxHitPoints)
             {
                 CurrentHitPoints = MaxHitPoints;

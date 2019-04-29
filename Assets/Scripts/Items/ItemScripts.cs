@@ -16,7 +16,8 @@ public class Item_RingOfHealing : Item
 {
     public override void OnItemPickedUp(GameObject player)
     {
-        return;
+        PlayerStats stats = player.GetComponent<PlayerStats>();
+        stats.Bonus_HealingReceived += 10;
     }
 }
 
