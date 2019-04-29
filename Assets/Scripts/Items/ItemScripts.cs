@@ -10,7 +10,7 @@ public abstract class Item
     public string description;
 
     public virtual void OnItemPickedUp(GameObject player) { return; }
-    public virtual void OnStruckByEnemy(GameObject player, GameObject enemy) { return; }
+    public virtual void OnStruckByEnemy(GameObject player, ref int damage) { return; }
     public virtual void OnEnemyStruck(GameObject player, GameObject enemy) { return; }
     public virtual void OnEnemyKilled(GameObject player, GameObject enemy) { return; }
 }
@@ -54,9 +54,13 @@ public class Item_HatOfCurse : Item
 
 public class Item_ShieldOfBlocking : Item
 {
-    public override void OnStruckByEnemy(GameObject player, GameObject enemy)
+    public override void OnStruckByEnemy(GameObject player, ref int damage)
     {
-        throw new System.NotImplementedException();
+        // 5% chance to block damage for each shield
+        if ((count * 5 * (5 / (count + 1))) >= Random.Range(0, 100))
+        {
+            damage = 0;
+        }
     }
 }
 

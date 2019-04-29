@@ -8,6 +8,8 @@ namespace Assets.Scripts.Monsters
     {
         [SerializeField] private int maxHitPoints;
         [SerializeField] private int damage;
+        private ItemManager p_itemManager;
+        private GameObject player;
         public int CurrentHitPoints { get; private set; }
 
         private float statMultiplier = 1f;
@@ -15,6 +17,8 @@ namespace Assets.Scripts.Monsters
         void Start()
         {
             this.CurrentHitPoints = maxHitPoints;
+            p_itemManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
+            player = p_itemManager.gameObject;
         }
 
         public void TakeDamage(int amount)
@@ -27,6 +31,14 @@ namespace Assets.Scripts.Monsters
             if (this.CurrentHitPoints == 0)
             {
                 JustDied();
+                return;
+            }
+            else
+            {
+                foreach (var item in p_itemManager.owned_items)
+                {
+                    item.Value.OnEnemyStruck(player, gameObject);
+                }
             }
         }
 
@@ -54,6 +66,10 @@ namespace Assets.Scripts.Monsters
             if (loot)
             {
                 GameObject instance = Instantiate(loot, transform.position, transform.rotation);
+            }
+            foreach (var item in p_itemManager.owned_items)
+            {
+                item.Value.OnEnemyKilled(player, gameObject);
             }
             Destroy(gameObject);
         }

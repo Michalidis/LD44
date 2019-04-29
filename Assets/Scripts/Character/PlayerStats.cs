@@ -6,6 +6,8 @@ namespace Assets.Scripts.Character
 {
     public class PlayerStats : MonoBehaviour, IDamagable
     {
+        private ItemManager p_itemManager;
+
         public WeaponProjectileEmitter emitter;
         public readonly float moveLimiter = 0.7f;
 
@@ -40,6 +42,7 @@ namespace Assets.Scripts.Character
             HasGoldenKey = false;
             RecalculateBaseStats();
             this.CurrentHitPoints = this.MaxHitPoints;
+            p_itemManager = GetComponent<ItemManager>();
             GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>().SetHealth(STARTING_HEALTH, STARTING_HEALTH);
         }
 
@@ -87,6 +90,11 @@ namespace Assets.Scripts.Character
 
         public void TakeDamage(int amount)
         {
+            foreach (var item in p_itemManager.owned_items)
+            {
+                item.Value.OnStruckByEnemy(gameObject, ref amount);
+            }
+
             this.CurrentHitPoints = (int) Mathf.Clamp(this.CurrentHitPoints - amount, 0.0f, this.MaxHitPoints);
 
             var ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UI.UIBehavior>();
@@ -94,16 +102,18 @@ namespace Assets.Scripts.Character
 
             if (this.CurrentHitPoints == 0)
             {
-                if (GetComponent<ItemManager>().TryResurrect())
+                if (p_itemManager.TryResurrect())
                 {
                     CurrentHitPoints = MaxHitPoints;
                     return;
                 }
+                else
+                {
+                    ui.OnPlayerDeath();
 
-                ui.OnPlayerDeath();
-
-                this.gameObject.GetComponent<PlayerController>()?.Disable();
-                this.gameObject.GetComponent<ObjectSpawner>()?.Disable();
+                    this.gameObject.GetComponent<PlayerController>()?.Disable();
+                    this.gameObject.GetComponent<ObjectSpawner>()?.Disable();
+                }
             }
 
         }
