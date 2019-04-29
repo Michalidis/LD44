@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LootManager : MonoBehaviour
 {
+    public bool DropLootOnStart;
     public bool EnsureLoot;
     public GameObject[] LootTable;
     public float[] ChanceTable;
@@ -47,7 +48,11 @@ public class LootManager : MonoBehaviour
     }
     void Start()
     {
-
+        if (DropLootOnStart)
+        {
+            Instantiate(GetLootItem(), transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

@@ -217,7 +217,7 @@ public class Item_RapierOfDamage : Item
     public override void OnItemPickedUp(GameObject player)
     {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.Bonus_ProjectileDamagePct += 0.10f;
+        stats.Bonus_ProjectileDamagePct += 0.50f;
         stats.RecalculateBaseStats();
     }
 }
