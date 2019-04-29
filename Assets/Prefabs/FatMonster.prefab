@@ -611,7 +611,7 @@ MonoBehaviour:
   LootTable:
   - {fileID: 3810651938803769108, guid: 76b7ef9683830ac4390f2e91959bbf05, type: 3}
   ChanceTable:
-  - 3
+  - 5.1
 --- !u!114 &1164871694
 MonoBehaviour:
   m_ObjectHideFlags: 0
