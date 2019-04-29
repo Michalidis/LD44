@@ -42,3 +42,9 @@ https://opengameart.org/content/up-3x
 
 item pickup sound:
 https://opengameart.org/content/inventory-sound-effects
+
+dragon:
+https://opengameart.org/content/dragon-fully-animated
+
+dragon sound:
+https://opengameart.org/content/ghost-monster-voice-moaning-growling

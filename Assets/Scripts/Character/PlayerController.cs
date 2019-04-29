@@ -10,6 +10,8 @@ namespace Assets.Scripts.Character
         Rigidbody2D body;
         Animator animator;
 
+        public bool movement_disabled;
+
         bool bumping;
         bool running;
 
@@ -40,13 +42,21 @@ namespace Assets.Scripts.Character
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (!movement_disabled)
             {
-                ToggleRunning();
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    ToggleRunning();
+                }
+                // Gives a value between -1 and 1
+                horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+                vertical = Input.GetAxisRaw("Vertical"); // -1 is down
             }
-            // Gives a value between -1 and 1
-            horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
-            vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+            else
+            {
+                horizontal = 0;
+                vertical = 0;
+            }
             footsteps_sound_delay -= Time.deltaTime;
         }
 

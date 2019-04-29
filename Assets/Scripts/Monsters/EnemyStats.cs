@@ -77,10 +77,20 @@ namespace Assets.Scripts.Monsters
                 item.Value.OnEnemyKilled(player, gameObject);
             }
 
-            this.gameObject.GetComponent<MonsterMovement>().Pause();
-            Destroy(this.transform.GetChild(0).gameObject);
-            this.gameObject.GetComponent<MonsterMovement>().SetDeathAnimation();
-            Invoke("RemoveMe", 1.0f);
+            if (name != "Dragon")
+            {
+                this.gameObject.GetComponent<MonsterMovement>().Pause();
+                Destroy(this.transform.GetChild(0).gameObject);
+                this.gameObject.GetComponent<MonsterMovement>().SetDeathAnimation();
+                Invoke("RemoveMe", 1.0f);
+            }
+            else
+            {
+                this.gameObject.GetComponent<MonsterMovement>().Pause();
+                Destroy(this.transform.GetChild(0).gameObject);
+                GetComponent<Animator>().SetBool("is_dead", true);
+                Invoke("RemoveMe", 331.0f / 60.0f);
+            }
         }
 
         void RemoveMe()
