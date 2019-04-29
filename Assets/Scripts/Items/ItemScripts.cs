@@ -174,7 +174,9 @@ public class Item_ScepterOfBlood : Item
 {
     public override void OnEnemyKilled(GameObject player, GameObject enemy)
     {
-        throw new System.NotImplementedException();
+        PlayerStats stats = player.GetComponent<PlayerStats>();
+        stats.HealPercentage(Random.Range(2, 5) * count / 100.0f);
+        GameObject.FindGameObjectWithTag("UI").GetComponent<Assets.Scripts.UI.UIBehavior>().SetHealth(stats.CurrentHitPoints, stats.MaxHitPoints);
     }
 }
 
