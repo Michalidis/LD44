@@ -43,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -787,6 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 946431761}
+  movement_disabled: 0
   footsteps:
   - {fileID: 8300000, guid: df631a853c4094349b239b05f377ea38, type: 3}
   - {fileID: 8300000, guid: be66ca06fd1b4de4d995cc9e08ccc171, type: 3}
