@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75bf3bb49767084889257896ac8dacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.4
+  Speed: 0.8
   MaxLeaderDistance: 0.4
 --- !u!61 &1885072287866591737
 BoxCollider2D:
@@ -618,11 +618,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4355859ae1a81554fbfdd802f6d652cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DropLootOnStart: 0
   EnsureLoot: 0
   LootTable:
   - {fileID: 3810651938803769108, guid: 76b7ef9683830ac4390f2e91959bbf05, type: 3}
   ChanceTable:
-  - 5
+  - 18
 --- !u!114 &1821274713
 MonoBehaviour:
   m_ObjectHideFlags: 0

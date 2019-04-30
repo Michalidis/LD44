@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4355859ae1a81554fbfdd802f6d652cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DropLootOnStart: 0
   EnsureLoot: 1
   LootTable:
   - {fileID: 3526393460778369397, guid: 184f4a27b56c82e40b203b3b218fe9b9, type: 3}

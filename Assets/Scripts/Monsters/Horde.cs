@@ -19,7 +19,6 @@ public class Horde : MonsterMovement
     // Start is called before the first frame update
     private void Start()
     {
-        Speed = 0.4f;
         this.Init();
         this.soundPlayer = this.GetComponent<AudioSource>();
         this.hitClips = GameObject.Find("HitManager").GetComponent<HitManager>().HitClips;

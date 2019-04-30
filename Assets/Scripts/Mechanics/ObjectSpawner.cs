@@ -6,10 +6,10 @@ namespace Assets.Scripts.Mechanics
     public class ObjectSpawner : MonoBehaviour
     {
         private static Vector2 NO_HIT_VECTOR = new Vector2(55555f, 55555f);
-        private static int INCREASE_COUNT_EVERY_X_ROUND = 7;
-        private static int BOOST_ENEMIES_EVERY_X_ROUND = 4;
-        private static float BOOST_BONUS = 0.2f;
-        private static float INTERVAL_MULTIPLIER = 1.1f;
+        private static int INCREASE_COUNT_EVERY_X_ROUND = 4;
+        private static int BOOST_ENEMIES_EVERY_X_ROUND = 2;
+        private static float BOOST_BONUS = 0.3f;
+        private static float INTERVAL_MULTIPLIER = 1.045f;
 
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private int count;

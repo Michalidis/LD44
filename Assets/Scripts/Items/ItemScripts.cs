@@ -24,7 +24,7 @@ public class Item_RingOfHealing : Item
     public override void OnItemPickedUp(GameObject player)
     {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.Bonus_HealingReceived += 10;
+        stats.Bonus_HealingReceived += 5;
     }
 }
 
@@ -43,7 +43,7 @@ public class Item_BowOfSpeed : Item
     public override void OnItemPickedUp(GameObject player)
     {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.Bonus_AttackSpeedPct += 0.15f;
+        stats.Bonus_AttackSpeedPct += 0.10f;
         stats.RecalculateBaseStats();
     }
 }
@@ -151,7 +151,7 @@ public class Item_RubyOfFire : Item, IWeaponProjectileEmitter
     private GameObject _player;
     public int GetDamage()
     {
-        return _player.GetComponentInChildren<WeaponProjectileEmitter>().GetDamage();
+        return (int)(_player.GetComponentInChildren<WeaponProjectileEmitter>().GetDamage() * 0.5);
     }
 
     public override void OnEnemyStruck(GameObject player, GameObject enemy)
